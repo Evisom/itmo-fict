@@ -1,1 +1,1 @@
-hello
+# All study assignments from ITMO University. 
