@@ -1,0 +1,5 @@
+*.doc
+*.docx
+course_materials
+.DS_Store
+*.pptx
