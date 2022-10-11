@@ -1,5 +1,6 @@
-*.doc
-*.docx
+# *.doc
+# *.docx
+~$*.doc*
 course_materials
 .DS_Store
 *.pptx
