@@ -3,9 +3,11 @@
 \contentsline {chapter}{ВВЕДЕНИЕ}{3}{Doc-Start}%
 \contentsline {chapter}{\numberline {1}МАТЕМАТИЧЕСКИЙ ТЕКСТ}{4}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Пример оформления математического текста}{4}{section.1.1}%
-\contentsline {chapter}{\numberline {2}ОБЗОР РЫНКА ВАКАНСИЙ}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Front-end разработчик}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Back-end разработчик}{7}{section.2.2}%
-\contentsline {section}{\numberline {2.3}DevOps инженер}{9}{section.2.3}%
-\contentsline {chapter}{ЗАКЛЮЧЕНИЕ}{11}{table.2.4}%
-\contentsline {chapter}{\hfil {}СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ\hfil {}}{12}{chapter*.1}%
+\contentsline {subsubsection}{3. Интегрирование по частям в определенном интеграле и формула Тейлора}{4}{section.1.1}%
+\contentsline {subsubsection}{4. Замена переменной в интеграле.}{6}{equation.1.1.6}%
+\contentsline {chapter}{\numberline {2}ОБЗОР РЫНКА ВАКАНСИЙ}{7}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Front-end разработчик}{7}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Back-end разработчик}{9}{section.2.2}%
+\contentsline {section}{\numberline {2.3}DevOps инженер}{11}{section.2.3}%
+\contentsline {chapter}{ЗАКЛЮЧЕНИЕ}{13}{table.2.4}%
+\contentsline {chapter}{\hfil {}СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ\hfil {}}{14}{chapter*.1}%
