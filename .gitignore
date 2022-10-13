@@ -4,7 +4,7 @@
 course_materials
 .DS_Store
 *.pptx
-
+.fleet/
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,linux,windows,visualstudiocode,jetbrains+all,python,node,c++,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,windows,visualstudiocode,jetbrains+all,python,node,c++,java
