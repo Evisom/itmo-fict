@@ -1,3 +1,5 @@
+students_keys = ['name', 'girl', 'is18', 'glasses', 'brownEyes', 'darkHair', 'siblings', 'pet', 'fromSPb', 'iphone', 'tushavin', 'coffe', 'homefood', 'watch', 'nameVowel', 'pizza', 'smoke', 'heightOver175', 'partner', 'winterOrSpring', 'gaming', 'campus', 'movies', 'anime']
+
 students = [
     {
         "name": "Бабаев Руслан",
@@ -676,3 +678,31 @@ students = [
         "anime": True,
     },
 ]
+
+
+import sqlite3
+
+def sqlRequest(sql):
+    try:
+        db = sqlite3.connect('students.db')
+        cursor = db.cursor()
+        cursor.execute(sql)
+        record = cursor.fetchall()
+        cursor.close()
+        db.commit()
+        print('OK')
+    except:
+        print('Ошибка подключения к базе')
+
+for i in range(0, len(students)):
+    sql = 'INSERT INTO students ('
+    for k in students_keys:
+        sql+=k + ', '
+    sql=sql[0:-2]+') VALUES ('
+    for k in students_keys:
+        sql+= '"'+str(students[i][k]) + '", '
+    sql=sql[0:-2]+');'
+    print(sql)
+    sqlRequest(sql)
+
+# sql = 'CREATE TABLE students (id INTEGER PRIMARY KEY, name TEXT, girl TEXT, is18 TEXT, glasses TEXT, brownEyes TEXT, darkHair TEXT, siblings TEXT, pet TEXT, fromSPb TEXT, iphone TEXT, tushavin TEXT, coffe TEXT, homefood TEXT, watch TEXT, nameVowel TEXT, pizza TEXT, smoke TEXT, heightOver175 TEXT, partner TEXT, winterOrSpring TEXT, gaming TEXT, campus TEXT, movies TEXT, anime TEXT  );'
