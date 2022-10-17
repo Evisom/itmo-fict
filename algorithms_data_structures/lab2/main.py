@@ -54,7 +54,7 @@ def inp(q):
     while a.lower() not in ['y', 'n']:
         print('Некорректный ввод!')
         a = input(q + ' [Y/N]: ')
-    if a == 'y':
+    if a.lower() == 'y':
         return True
     else:
         return False
