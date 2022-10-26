@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "cs-lab-3",
+      "setup": "LC_ALL='en_US.UTF-8'",
+      "run": "python tester_3.pyc",
+      "input": "",
+      "output": "PASSED",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 3
+    }
+  ]
+}

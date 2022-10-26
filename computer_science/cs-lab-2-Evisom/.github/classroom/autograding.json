@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "lab-2",
+      "setup": "",
+      "run": "python tester_2.pyc",
+      "input": "",
+      "output": "PASSED",
+      "comparison": "exact",
+      "timeout": 1,
+      "points": 1
+    }
+  ]
+}
