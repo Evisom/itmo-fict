@@ -5,6 +5,7 @@
 \usepackage{cmap}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{amssymb}
 \graphicspath{ {./q1_img/} }
 \usepackage[left=2cm,right=2cm,
     top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
@@ -38,8 +39,7 @@
             \item Симметричная разность: $ A \bigtriangleup B = (A \backslash B) \cap (B \backslash A)$
             \item Декартово произведение множеств: $ A \times B = \{(a; b) | a \in A, b \in B \}$
         \end{itemize}
-        
-    
+           
     \section{Отображения и функции}
         \textsc{Отображение (функция) } - правило по которому $ \forall x \in A \exists ! y \in B $ \\
         \\
@@ -61,4 +61,69 @@
         \textsc{Счетность множество: } бесконечное множество, элементы которого можно пронумеровать натуральными числами \\
         \textsc{Мощность континуума: } мощность множества всех вещественных чисел 
  
+    \section{Теорема Кантора-Бернштейна и сравнение мощности множеств}  
+        \textsc{Теорема Кантора-Бернштейна} 
+        \begin{enumerate}
+            \item Если $A \sim B'$ (где $B' \subset B$) и $B \sim A'$ ( где $A' \subset A $) $\rightarrow A \sim B$    
+            \item Если $A \subset B \subset C$, причем $A \sim C$, то $A \sim B$
+        \end{enumerate}
+        \textsc{Сравнение мощностей множеств:} Если множества $A$ и $B$ неэквивалентны, но $\exists B' \subset B: B' \sim A $ и $\nexists  A' \subset A: A' \sim B$, то будем считать, что $|A|<|B|$
+
+    \section{Множество вещественных чисел и его аксиоматика}
+        \textsc{Вещественные числа $\mathbb{R}$:} бесконечные десятичные дроби вида $\pm a_0,a_1a_2a_3....$, где выбран определенный знак: + или -, $a_0 \in \mathbb{N} \cup \{0\}$, а все десятичные символы $a_1, a_2...$ - цифры от 0 до 9, т.е. $\forall n \in \mathbb{N} \rightarrow a_n \in \{0,1,2,...,9\}$
+        \textsc{Аксиоматика: }
+            \begin{enumerate}
+                \item Линейность: если $x \neq y$, то $x > y$ или $x < y$
+                \item Транзитивность: $\exists\{ >,= \}b, b\{ >,= \}c\rightarrow a\{>,=\}c$
+                \item Ассоциативность: $\forall a, b, c \in \mathbb{R} \rightarrow (a+b)+c = a+(b+c), a(bc) = (ab)c$
+                \item Коммутативность: $\forall a,b \in \mathbb{R} \rightarrow a+b=b+a, a\cdot b = b\cdot a $
+                \item Дистрибутивность: $\forall a,b,c \in \mathbb{R} \rightarrow (a+b)\cdot c = a \cdot c + b \cdot c$
+            \end{enumerate}
+
+    \section{Ограниченность множества и его точные грани}  
+        \textsc{Непустое множество $A \subset \mathbb{R}$ называется:} \\
+        \begin{enumerate}
+            \item Ограниченным сверху, если $\exists b \in \mathbb{R}: \forall a \in A \rightarrow a \leqslant  b$
+            \item Ограниченным снизу, если $\exists d \in \mathbb{R}: \forall a \in A \rightarrow d \leqslant  a$
+            \item Ограниченным, если $\exists c \in \mathbb{R}: c>0$ и $\forall a \in A \rightarrow |a| \leqslant c$
+        \end{enumerate}
+        Верхняя и нижняя грань не единственны. \\
+        \textsc{Свойство точной верхней грани:} Если $b = sup A $, то $\forall \epsilon > 0 \exists a \in A: a > b - \epsilon$ \\
+        \textsc{Свойство точной нижней грани:} Если $d = inf A $, то $\forall \epsilon > 0 \exists a \in A: a < d + \epsilon$
+
+    \section{Метод математической индукции}
+        \textsc{Математическая индукция } - метод математического доказательства, который используется, чтобы доказать истинность некоторого утверждения для всех натуральных чисел.
+        Для обоснования метода математической индукции используется свойство натуральных чисел:  $\forall A \subset \mathbb{N}: A \ne \emptyset \exists a' \in A : \forall a \in A \rightarrow a' \leqslant a$ \\ 
+
+        Метод математической индукции состоит из следующих шагов:
+        \begin{enumerate}
+            \item База индукции: проверяем справедливость утверждения для a'
+            \item Индукционное предположение: предполагаем справедливость для произвольного элемента $a_k \in A$
+            \item Индукционный шаг: доказываем справедливость утверждения для $a_{k+1} \in A$
+        \end{enumerate}
+
+    \section{Бином Ньютона}
+        $(1+x)^n = \sum^n_{k=0} C^k_n x^k$, где $C^k_n = 
+        \begin{pmatrix}
+            n \\ k
+        \end{pmatrix} 
+        = \frac{n!}{k!(n-k)!}$ - биноминальный коэффициент, $n,k \in \mathbb{N}, x \in \mathbb{R}$
+
+    \section{Числовая последовательность и ее ограниченность}
+        \textsc{Числовая последовательность:} функция определенная на множестве $\mathbb{N}$ и принимающая числовые значения. $\exists x_n = f(n)$, где $f:\mathbb{N} \rightarrow  \mathbb{R}$, тогда $\{x_n \}$ - последовательность \\
+        \textsc{Ограниченность последовательности: } последовательность называется ограниченной с обеих сторон, если $\exists A \in \mathbb{R}: \forall n \in \mathbb{N} \rightarrow |x_n| \leqslant A$
+
+    \section{Бесконечно большие и бесконечно малые последовательности и их связь}
+        \textsc{Бесконечно большая последовательность: } $\forall c > 0 \exists n(c) \in \mathbb{N} : \forall n > n(c) \rightarrow |x_n| > c$ \\ 
+        \textsc{Бесконечно малая последовательность: } $\forall \epsilon > 0 \exists n(\epsilon) \in \mathbb{N} : \forall n > n(\epsilon) \rightarrow |x_n| < \epsilon$ \\
+        \textsc{Связь:} если $\{x_n\}$ - б.м.п. и $\forall n \in \mathbb{N} \rightarrow x_n \ne 0 $, то $\{\frac{1}{x_n}\}$ - б.б.п и наоборот, \\ если $\{x_n\}$ - б.б.п. и $\forall n \in \mathbb{N} \rightarrow x_n \ne 0 $, то $\{\frac{1}{x_n}\}$ - б.м.п и наоборот,
+    
+    \section{Сходимость и расходимость последовательностей}
+        \textsc{Определение} - Последовательность $\{x_n\}$ называется сходящейся (имеющей предел), если: \\ $\forall \epsilon > 0 \exists n(\epsilon) \in \mathbb{N}: \forall n > n(\epsilon) \rightarrow |x_n - a| < \epsilon$ \\
+        \textsc{Определение} - Последовательность $\{x_n\}$ называется сходящейся (имеющей предел), если: \\ $\forall \epsilon > 0 \exists n(\epsilon) \in \mathbb{N}: \forall n > n(\epsilon) \rightarrow x_n \in \mathbb{U}_{\epsilon} (a)$ \\
+        Последовательности не являющиеся сходящими, принято называть расходящимися. \\
+        \textsc{Определение} - Последовательность $\{x_n\}$ называется сходящейся (имеющей предел), если: $\exists a \in \mathbb{R}\ \backslash \{ \pm \infty \}: a_n$ является б.м.п, где $a_n := x_n - a$ \\
+        Если $\{x_n\}$ сходиться, то она имеет единственный предел.
+
+
 \end{document}
