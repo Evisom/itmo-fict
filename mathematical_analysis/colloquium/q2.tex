@@ -1,0 +1,165 @@
+\documentclass[14pt]{article}
+\usepackage{hyperref}
+\usepackage[utf8x]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{cmap}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\graphicspath{ {./q1_img/} }
+\usepackage[left=2cm,right=2cm,
+    top=2cm,bottom=2cm,bindingoffset=0cm]{geometry}
+
+\title{Билеты по математическому анализу для коллоквиума 14 ноября. Часть II }
+\author{Шишминцев Дмитрий Владимирович}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+    \newpage
+    
+    \section{Свойства точных граней множества}
+        \textsc{Свойство точной верхней грани:} Если $b = sup A$, то $\forall \epsilon > 0 \exists a \in A : a > b - \epsilon$
+
+        $\blacktriangleright$ Допустим обратное, пусть найдется $\epsilon > 0 : \forall a \in A \rightarrow b - a \geqslant \epsilon$. Но тогда $b' = b - \epsilon$ является верхней гранью множества $A$, которая будет меньше, чем $b$, а это невозможно, поскольку $b$ - наименьшая из верхних граней множества $A$ согласно \underline{свойству полноты множества вещественных чисел ??} $\blacktriangleleft$ \\
+        \textsc{Свойство точной нижней грани:} Если $b = inf A$, то $\forall \epsilon > 0 \exists a \in A : a < d + \epsilon$
+        
+        $\blacktriangleright$ Допустим обратное, пусть найдется $\epsilon > 0 : \forall a \in A \rightarrow a - d  \geqslant \epsilon$. Но тогда $d' = d + \epsilon$ является нижней гранью множества $A$, которая будет меньше, чем $d$, а это невозможно, поскольку $d$ - наибольшая из нижних граней множества $A$ согласно \underline{свойству полноты множества вещественных чисел ??} $\blacktriangleleft$ \\
+
+    \section{Принцип вложенных отрезков}
+        \textsc{Теорема:} Пусть $\{[a_n, b_n]\}^{\infty}_{n=1}:\forall n \in \mathbb{N} \rightarrow [a_{n+1}, b_{n+1}] \subset [a_n, b_n]$ (система вложенных отрезков),  тогда $\exists ! c \in \mathbb{R} : \forall n \in \mathbb{N} \rightarrow c \in [a_n, b_n]$
+
+        $\blacktriangleright$ Обозначим длину отрезка $[a_n, b_n]$ за $d(n) = b_n a_n $ Тогда, по скольку $\forall n \in \mathbb{N} \rightarrow [a_{n+1}, b_{n+1}] \subset [a_n, b_n]$, то $\forall k \in \mathbb{N} \rightarrow d(1) > d(k)$ Пусть число $c:= sup_{n \in \mathbb{N}} a_n$, тогда по определению супремума $\forall n \rightarrow a_n \leqslant c $ и $c \leqslant b_n$, иначе, если бы $\exists k \in \mathbb{N} : b_k < c$, то нашлось бы число $a_m : b_k < a_m $, что противоречит вложенности отрезков. Итак, $\forall n \rightarrow c \leqslant b_n \Rightarrow c \in [a_n, b_n]$. Единственность точки с следует из стремления длин отрезков к нулю. $\blacktriangleleft$ \\
+
+    \section{Теоремы о бесконечно больших и бесконечно малых последовательностях}
+        \textsc{Теорема 4 (ограниченность б.м.п):} Если $\{x_n\}$ - б.м.п $\Rightarrow \forall n \in \mathbb{N} \rightarrow |x_n| <C$, где $C \in \mathbb{R}_+$
+
+        $\blacktriangleright$ Пусть $\{x_n\}$ - б.м.п, тогда по определению $\forall \epsilon \exists n(\epsilon) \in \mathbb{N} : \forall n > n (\epsilon) \rightarrow |x_n| < \epsilon$. Следовательно $x_{n'} \geqslant \epsilon $, где $n'=1,n(\epsilon)$. Предположим $C = max\{|x_1|,...,|x_{n'}|\}$, тогда с учетом свойства транзитивности, получаем что $\forall n \in \mathbb{N} \rightarrow |x_n| < C$ $\blacktriangleleft$ \\
+        \textsc{Теорема 5:} Если $\{x_n\}$ - б.м.п и $\forall n \in \mathbb{N} \rightarrow x_n \ne 0$, то $\{\frac{1}{x_n}\}$ - б.б.п и наоборот, если $\{x_n\}$ - б.б.п и $\forall n \in \mathbb{N} \rightarrow x_n \ne 0$, то $\{\frac{1}{x_n}\}$ - б.м.п
+
+        $\blacktriangleright$ Пусть $\{x_n\}$ - б.б.п, тогда лишь конечное количество членов удовлетворяет неравенству $ |x_n| \geqslant \epsilon  \Leftrightarrow |\frac{1}{x_n}| \leqslant \frac{1}{\epsilon} \Rightarrow $ неравенству $|\frac{1}{x_n}| > \frac{1}{\epsilon}$ удовлетворяет бесконечное количество членов последовательности $\{x_n\}$, а значит $\{\frac{1}{x_n}\}$ - б.б.п. Пусть $\{x_n\}$ - б.м.п, тогда лишь конечное количество членов удовлетворяет неравенству $ |x_n|  \leqslant  \epsilon  \Leftrightarrow |\frac{1}{x_n}| \geqslant  \frac{1}{\epsilon} \Rightarrow $ неравенству $|\frac{1}{x_n}| < \frac{1}{\epsilon}$ удовлетворяет бесконечное количество членов последовательности $\{x_n\}$, а значит $\{\frac{1}{x_n}\}$ - б.м.п.$\blacktriangleleft$ \\
+        \textsc{Теорема 6 (арифметика бесконечно малых последовательностей):} 1: Если $\{ x_n\} $ - б.м.п, то и $\{x_n\}$ - б.м.п. 2: Алгебраическая сумма конечного б.м.п - б.м.п
+
+        $\blacktriangleright$ 1: Очевидно. 2: Пусть $\{x_n\}$ и $\{y_n\}$ - б.м.п, тогда получаем, что $\forall \epsilon > 0 \exists n_1 =  n_1(\frac{\epsilon}{2})$ и $n_2 = n_2(\frac{\epsilon}{2}) \in \mathbb{N} : \forall n > max\{n_1, n_2\} \rightarrow |x_n \pm y_n| \leqslant |x_n| + |y_n| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$ $\blacktriangleleft$ \\
+        \textsc{Теорема 7 (арифметика бесконечно малых последовательностей):} Произведение б.м.п на ограниченную последовательность - б.м.п 
+        
+        $\blacktriangleright$ Пусть $\{x_n\}$ - б.м.п, а $\{y_n\}$ ограничена, тогда $\exists C > 0: \forall n \in \mathbb{N} \rightarrow |y_n| < C $ и $\forall \epsilon > 0 \exists n(\epsilon_1) \in \mathbb{N} [$ где $ \epsilon_1 = \frac{\epsilon}{C}]:\forall n > n(\epsilon_1) \rightarrow |x_n \cdot y_n | \leqslant |x_n| \cdot C < \frac{\epsilon}{C} \cdot C = \epsilon$ $\blacktriangleleft$\\
+        
+    \section{ Сходимость и единственность предела сходящейся последовательности}
+        \textsc{Сходящаяся последовательность:}Последовательность $\{x_n\}$ называется сходящейся (имеющей предел), если $\forall \epsilon > 0 \exists(\epsilon) \in \mathbb{N}: \forall n > n(\epsilon) \rightarrow |x_n - a| < \epsilon$
+        \textsc{Единственность предела последовательноси:} Если $\{x_n\}$ сходится, то она имеет единственный предел \\ 
+        $\blacktriangleright$ Предположим обратное \\
+        $\begin{cases}
+            \lim_{n \rightarrow \infty} x_n = a \Leftrightarrow \forall \epsilon > 0 \exists n_1 = n_1(\epsilon) \in \mathbb{N}: \forall n > n_1 \rightarrow a - \epsilon < x_n < a + \epsilon \\
+            \lim_{n \rightarrow \infty} x_n = b \Leftrightarrow \forall \epsilon > 0 \exists n_2 = n_2(\epsilon) \in \mathbb{N}: \forall n > n_2 \rightarrow b - \epsilon < x_n < b + \epsilon
+        \end{cases}$, где $a > b$, возьмем $\epsilon = \frac{a-b}{2} > 0$, тогда $\forall n > n(\epsilon) = max\{n_1,n_2\} \rightarrow a - \epsilon = \frac{a+b}{2} < x_n < \frac{a+b}{2} = b + \epsilon$
+        $\blacktriangleleft$\
+
+    \section{Арифметические свойства пределов сходящихся последовательностей}
+        \textsc{Свойство 1:} $\lim_{n \rightarrow \infty} (x_n \pm y_n) = \lim_{n \rightarrow \infty} x_n \pm \lim_{n \rightarrow \infty} y_n$  \\ 
+        \textsc{Свойство 2:} $\lim_{n \rightarrow \infty} (x_n \cdot y_n) = \lim_{n \rightarrow \infty} x_n \cdot \lim_{n \rightarrow \infty} y_n$  \\ 
+        \textsc{Свойство 3:} Пусть $\forall n \in \mathbb{N} \rightarrow y_n \ne 0$ и $\lim_{n \rightarrow \infty} y_n \ne 0$, тогда: $\lim_{n \rightarrow \infty} \frac{x_n}{y_n} = \frac{\lim_{n \rightarrow \infty} x_n}{\lim_{n \rightarrow \infty} y_n}$\\
+
+        Пусть $\lim_{n \rightarrow \infty} x_n = a \Rightarrow x_n = a+ a_n, \lim_{n \rightarrow \infty} y_n = b \Rightarrow y_n = b + \beta_n$, где $a_n, \beta_n$ - б.м.п \\
+        $\blacktriangleright$ (1)  $x_n \pm y_n = (a + a_n) \pm (b + \beta) = (a \pm b ) + (a_n \pm \beta_n)$$\blacktriangleleft$\\
+        $\blacktriangleright$ (2)  $x_n \cdot y_n = (a + a_n) \cdot (b + \beta) = ab + a\beta_n + ba_n a_n\beta_n$$\blacktriangleleft$\\
+        $\blacktriangleright$ $\frac{x_n}{y_n} - \frac{a}{b} = \frac{bx_n - ay_n}{by_n} = \frac{b(a+a_n) - a(b + \beta_n)}{by_n} = \frac{ba_n - a\beta_n}{by_n}=\frac{1}{y_n}(a_n - \frac{a}{b}\beta_n$, а произведение ограниченной на б.м.п есть б.м.п. Тогда $\frac{x_n}{y_n} = \frac{a}{b} + \frac{1}{y_n}(a_n - \frac{a}{b}\beta_n)$ $\blacktriangleleft$\\
+
+    
+    \section{Теорема о двух миллиционерах}
+        \textsc{Теорема: }Пусть$\lim_{n \rightarrow \infty} x_n = \lim_{n \rightarrow \infty} y_n = a $ и $\forall n \in \mathbb{N} \rightarrow x_n \leqslant z_n \leqslant y_n $ справедливо, что $\lim_{n \rightarrow \infty} z_n = a$
+
+        $\blacktriangleright$ Для каждого $\epsilon > 0$ находим $n(\epsilon)$ такое, что $\forall n > n(\epsilon)$ выполняются неравенства $a - \epsilon < x_n < a + \epsilon $ и $a - \epsilon < y_n < a + \epsilon$ тогда для таких $n$ верно $a - \epsilon < x_n \leqslant z_n \leqslant y_n < a + \epsilon $ то есть $z_n \in (a-\epsilon, a + \epsilon)$ $\blacktriangleleft$\\
+
+        
+    \section{Теорема Штольца}
+        \textsc{Теорема: } Пусть $\{y_n\}^\infty_{n=1}: 1) \forall n \in \mathbb{N} \rightarrow y_n \leqslant y_{n+1}; 2) \lim_{n \rightarrow \infty} y_n = +\infty; 3) \exists \lim_{n \rightarrow \infty} \frac{x_{n+1} - x_n}{y_{n+1} - y_n} = l$, тогда $\lim_{n \rightarrow \infty} \frac{x_n}{y_n} = l$ \\ 
+        
+        $\blacktriangleright$ 
+        Так как $\lim_{n \rightarrow \infty} \frac{x_{n+1} - x_n}{y_{n+1} - y_n} = l \Rightarrow \frac{x_{n_1} - x_n}{y_{n+1} - y_n} = l + a_n$, где $a_n$ - б.м.п, а значит $\forall \epsilon > 0 \exists n(\epsilon):\forall n \geqslant n(\epsilon) \rightarrow |a_n| < \frac{\epsilon}{2}$. Полагая значение номера равным последовательно $n(\epsilon), n(\epsilon)+1,...,n$ получаем систему уравнений:\\
+        $\begin{cases}
+            x_{n+1} - ly_{n+1} = x_n - ly_n + a_n (y_{n+1} - y_n), \\ 
+            ... \\ 
+            x_{n(\epsilon)+1} - ly_{n(\epsilon) + 1} = x_n(\epsilon) - ly_n(\epsilon) + a_n(\epsilon)(y_{n(\epsilon)+1} - y_n(\epsilon))
+        \end{cases}$ \\ 
+        сложим полученные равенства, получим $x_{n+1} - ly_{n+1} = x_{n(\epsilon)} - ly_{n(\epsilon)} + \sum^n_{i=n(\epsilon)} a_i (y_{i+1}- y_i) \rightarrow  |x_{n+1} - ly_{n+1}| \leqslant |x_{n(\epsilon)} - ly_{n(\epsilon)} | + |a_{n(\epsilon)}| \cdot |y_{n(\epsilon)+1} - y_{n(\epsilon)}| + ... + |a_n| \cdot |y_{n+1} - y_n|, |x_{n+1} - ly_{n+1}| \leqslant |x_{n(\epsilon)} - ly_{n(\epsilon)}| + \frac{\epsilon}{2}|y_{n(\epsilon)+1} - y_{n(\epsilon)}| + ... + \frac{\epsilon}{2}|y_{n+1} - y_n|, |\frac{x_{n+1}}{y_{n+1}} - l| < \frac{|x_{n(\epsilon)} - ly_{n(\epsilon)}|}{y_{n+1}} + \frac{\epsilon}{2}\frac{y_{n+1}- y_{n(\epsilon)}}{y_{n+1}}$
+        Поскольку $\lim_{n \rightarrow \infty} y_n = + \infty \Rightarrow \exists n_1(\epsilon):\forall n > n_1 \rightarrow \frac{|x_{n(@e)}-ly_{n(\epsilon)}|}{y_{n+1}} < \frac{\epsilon}{2}$ Полагая $n_0 = max n_1,n(\epsilon) $ получаем, что $\forall n > n_0 \rightarrow |\frac{x_{n+1}}{y_{n+1}} - l| < \epsilon \Rightarrow \frac{x_n}{y_n} \xrightarrow{n \rightarrow \infty} = l$ 
+        $\blacktriangleleft$\\
+
+
+    \section{Теорема Вейерштрасса}
+        \textsc{Теорема:} Если неубывающая (невозрастающая) последовательность $\{x_n\}$ ограничена сверху (снизу), то она сходится к $sup x_n$
+
+        $\blacktriangleright$ 
+        Пусть $\{x_n\}:\forall n \in \mathbb{N} \rightarrow x_n \leqslant x_{n+1} $ и $x_n \leqslant C \in \mathbb{R} \Rightarrow \exists \hat{x} := sup_{n\in\mathbb{R}}x_n$ Покажем, что $\lim_{n \rightarrow \infty} x_n = \overline{x}$. Действительно, $\forall n \in \mathbb{N} \rightarrow x_n \leqslant \overline(x)$ - согласно определению точки верхней грани. Далее, фиксируем значение $\epsilon > 0$, для которого согласно утверждению $\exists x_\epsilon:\overline{x}-\epsilon > x_\epsilon$, а в силу того, что $\{x_n\} \uparrow $ получаем, что $\forall n > n_\epsilon \rightarrow \overline{x} - \epsilon < x_n$, тогда для этих же номеров справедливо $\overline{x} - \epsilon < x_n \leqslant \overline{x} \Rightarrow |x_n - \overline{x}| < \epsilon \Rightarrow \lim_{n\rightarrow \infty} x_n = \overline{x} = sup_{n \in \mathbb{N} } x_n $
+        $\blacktriangleleft$\\
+
+    \section{Теорема Больцано-Вейерштрасса без док-ва}
+        \textsc{Теорема:} Из всякой ограниченной последовательности можно выделить сходящуюся подпоследовательность
+
+    \section{Критерий Коши о фундаментальности последовательности}
+        \textsc{Теорема:} Для сходимости последовательности необходимо и достаточно, что бы она была фундаментальной. \\ 
+        \textsc{Определение:} Последовательность $\{x_n\}$ называется фундаментальной, если для нее выполняется условие Коши: $\forall \epsilon > 0 \exists n(\epsilon) \in \mathbb{N}: \forall n,m \in \mathbb{N} : n,m > n(\epsilon) \rightarrow |x_n - x_m| < \epsilon$   
+
+        $\blacktriangleright$Необходимость: Пусть $x_n \xrightarrow{n \rightarrow \infty} a \in \mathbb{R}$ возьмем произвольное $\epsilon > 0$ тогда $\exists n(\epsilon)\in \mathbb{N}:\forall n > n(\epsilon) \rightarrow |x_n - a| < \frac{\epsilon}{2} $, если теперь $n,m>n(\epsilon)$ то $|x_n - x_m| = |x_n - a - (x_n - a)| \leqslant |x_n - a| + |x_m - a| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon $ $\blacktriangleleft$
+
+        $\blacktriangleright$Достаточность: Пусть последовательность $\{x_n\}$ фундаментальна, то есть удовлетворяет условию в определении. Покажем что она сходится. 
+        Покажем, что последовательность $\{x_n\}$ ограничена. Возьмем $\epsilon = 1$, тогда согласно определению $\forall n > n(1) \rightarrow |x_n - x_{n(1)}| < 1 \Rightarrow |x_n| \leqslant |x_{n(1)}| + 1$, так как $|a|-|b|\leqslant |a-b|.$ Следовательно $\{x_n\}$ ограничена. \\ 
+        По теореме Больцано-Вейерштрасса из $\{x_n\}$ можно выделить сходящуюся подпоследовательность $\{x_{k_n}\}$. Пусть $a:=\lim_{n\rightarrow \infty}x_{k_n}$ \\ 
+        Покажем что $\lim_{n\rightarrow\infty}x_n = a$. Согласно определению, имеем что $\forall \epsilon > 0 \exists n(\epsilon) \in \mathbb{N}: \forall n,k > n(\epsilon) \rightarrow |x_n - x_{k_n}| < \frac{\epsilon}{2}$ Переходя к пределу при $k \rightarrow \infty$, получаем $|x_n - a| < \frac{\epsilon}{2} < \epsilon$
+        $\blacktriangleleft$\\
+
+    \section{Эквивалентность определений предела по Коши и по Гейне}
+        \textsc{Определение предела функции по Коши и по Гейне являются эквивалентными}
+
+        $\blacktriangleright$ Пусть $f(x) \xrightarrow{x \rightarrow a} b $ по Коши. Покажем, что $\lim_{n \rightarrow \infty} f(x_n) = b$, где $x_n \xrightarrow{n\rightarrow \infty} a$ и $x_n \ne a$ \\  Из сходимости функции по Коши следует, что $f: \mathring{\mathbb{U}}(a, \delta) \rightarrow \mathbb{R}$. Рассмотрим проивзольную последовательность $\{x_n\} : x_n \in \mathring{\mathbb{U}}(a, \delta)$ и $x_n \xrightarrow{n \rightarrow \infty} a$.\\ Фиксируем произвольное положительное число $\epsilon$, тогда согласно определению Коши имеем, что $\exists \delta = \delta(\epsilon) > 0: \forall x \in \mathring{\mathbb{U}}(a,\delta) \rightarrow f(x) \in \mathbb{U}_\epsilon (\delta)$. \\ В силу сходимости $x_n \xrightarrow{x \rightarrow \infty} a $ для выбранного $\delta = \delta(\epsilon). \\ \exists n(\delta) \in \mathbb{N} : \forall n \geqslant n(\delta) \rightarrow x_n \in \mathring{\mathbb{U}}(a, \delta). $ Но тогда $\forall n \geqslant n(\delta) \rightarrow f(x_n) \in \mathbb{U}_\epsilon(b) \Rightarrow f(x_n) \xrightarrow{x\rightarrow\infty} b $ 
+        \\ Пусть $\lim_{n\rightarrow \infty} f(x_n) = b$, где $x_n \xrightarrow{n\rightarrow \infty} a$ и $x_n \ne a$. Покажем, что $f(x) \xrightarrow{x\rightarrow a}b$. \\ Допустим противное, то есть что  $\exists \epsilon_0 > 0: \forall \delta > 0 \exists x \in \mathring{\mathbb{U}} (a, \delta) : f(x) \notin \mathbb{U}_{\epsilon_0}(b)$. \\  Будем в качестве $\delta$ брать $\delta=\frac{1}{n}$, а соответствующее значение $x$ обозначать через $x_{n_1} $ то есть что \\ $\forall n \in \mathbb{N} \exists x_n \in \mathring{\mathbb{U}} (a, \frac{1}{n}):f(x_n)\notin \mathbb{U}_{\epsilon_0}(b)$ $\blacktriangleleft$\\ Но это означает, что для последовательности $\{x_n\}^\infty_{n=1}$ имеем: $x_n \ne a, x_n \xrightarrow{x\rightarrow\infty} a, \lim_{n\rightarrow\infty} f(x_n) \ne b$ то есть $b$ не является пределом функции $f(x)$ при $x\rightarrow a$ согласно определению предела функции в точке по Коши, что противоречит исходному условию.
+
+    \section{Критерий Коши о сходимости функции}
+    % 99
+        \textsc{Теорема:} Пусть функция $f(x)$ определена на $\mathring{\mathbb{U}(a)}$, где $a \in \overline{\mathbb{R}}$. Тогда для существования конечного предела функции в точке $a$ необходимо и достаточно что бы выполнялось условие Коши $\forall \epsilon > 0 \exists \delta = \delta(\epsilon) > 0: \forall:x', x'' \in \mathring{\mathbb{U}}(a,\delta) \rightarrow |f(x') - f(x'') < \epsilon|$
+        
+        $\blacktriangleright$
+            Необходимость: Пусть $\exists \lim_{x\rightarrow a} f(x) = b \in \mathbb{R}$, тогда $\forall \epsilon > 0 \exists \delta = \delta(\epsilon) > 0 : \forall x', x'' \in \mathring{\mathbb{R}} (a, \delta) \rightarrow |f(x') - b| < \frac{\epsilon}{2}$ и $|f(x'')-b| < \frac{\epsilon}{2}$ \\
+            Отсюда заключем, что \\
+            $|f(x')-f(x'')| = |f(x')-b-f(x'')+b| \leqslant |f(x') - b| + |f(x'')-b| < \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$  $\blacktriangleleft$
+        
+        $\blacktriangleright$ 
+        Достаточность: Пусть выполняется условие Коши. Покажем $\exists \lim_{x\rightarrow a} f(x)$ Согласно определению предела по Гейне возьмем $x_n \in \mathring{\mathbb{U}}(a):x_n \xleftarrow{n \rightarrow \infty} a$. Так же возьмем произвольное $\epsilon > 0$ к которому подбираем $\delta = \delta(\epsilon) > 0$ из определения следует, что найдется $n(\delta)\in\mathbb{N}:\forall n \geqslant n(\delta) \rightarrow x_n \in \mathring{\mathbb{U}}(a, \delta)$ Тогда из условия Коши имеем \\
+        $|f(x_n) - f(x_m) < \epsilon|   \forall n,m \geqslant n(\delta)$ \\ 
+        Тогда последовательность $\{f(x_n)\}$ сходится в силу критерия Коши для последовательностей. Пусть мы имеем, что $\lim_{n\rightarrow\infty}f(x_n) = A \in \mathbb{R}$ \\ 
+        Для завершения доказательства покажем, что $\forall \{x'_n\}:x'_n \in \mathring{\mathbb{U}}(a), x'_n \xrightarrow{n\rightarrow \infty}a$ предел $\lim_{n\rightarrow \infty} f(x'_n) $ (существующий по уже доказанному) и также равен $A$ \\ 
+        Предположим противное: $\lim_{n\rightarrow\infty}f(x'_n) = B \ne A$ для некоторой последовательности $\{x'_n\}:x'_n \in \mathring{\mathbb{U}}(a), x_n \xrightarrow{n\rightarrow}a$ Так как $\{f(x_1),f(x_2),f(x_3)...\}$ расходится, то получаем противоречие
+        $\blacktriangleleft$\\
+    \section{Непрерывность функций над арифметическими операциями с ними}
+        \textsc{Теорема:} Пусть на одном и том же множестве заданы функции $f(x)$ и $g(x)$, непрерывные в точке a. Тогда функция $f(x) \pm g(x), f(x) \cdot g(x), \frac{f(x)}{g(x)}$ непрерывны в точке a
+        
+        $\blacktriangleright$ 
+            Так как непрерывные функции в точке a функции имеют в этой точке пределы, соответственно равные $f(a)$ и $g(a)$, то в силу арифметических свойств предела функции $f(x)\pm g(x), f(x) \cdot g(x), \frac{f(x)}{g(x)}$ существуют и равны соответственно $f(a)\pm g(a), f(a) \cdot g(a), \frac{f(a)}{g(a)}$. Но как раз эти величины равны частным значениям перечисленных функций в точке a. А значит, по определению эти функции непрерывны в точке a.
+        $\blacktriangleleft$\\
+    % 126
+    \section{О непрерывности сложной функции} 
+        \textsc{Теорема:} Пусть функция $x=\varphi (t)$ непрерывна в точке a, а функция $y=f(x)$ непрерывна в точке $b=\varphi(a) $. Тогда функция $y=f[\varphi(t)]$ непрерывна в точке а
+        
+        $\blacktriangleright$ 
+            Пусть $\{t_n\}$ - произвольная последовательность значений аргумента сложной функции сходящейся в точке a. Так как функция $x=\varphi(t)$ непрерывна в точке а, то определению непрерывности по Гейне соответствующая последовательность значений функции $x_n = \varphi(t_n)$ сходится к числу $b = \varphi(a)$. Далее поскольку функция $y=f(x)$ непрерывна в точке $b=\varphi(a)$ и для нее указанная выше последовательность $\{x_n\}$ сходящаяся к $b=\varphi(a)$ является последовательностью значений аргумента, то соответствующая последовательность значений функции $f(x_n) = f[\varphi(t_n)] $ сходится к числу $f(b)=f[\varphi(a)]$
+        $\blacktriangleleft$\\
+    % 127-128
+    \section{Существование односторонних пределов монотонной на отрезке функции}
+    % 129
+    \section{Монотонность и непрерывность обратной функции}
+        \textsc{Теорема:} Пусть функция $y=f(x)$ возрастает (убывает) на отрезке $[a,b]$ и непрерывна на нем и пусть $a = f(a), \beta = f(b)$. Тогда если множеством значений функции $y=f(x)$ является отрезок $[a,\beta]$ (соответственно отрезок $[\beta, a]$) то на этом последнем отрезке определена обратная для $y=f(x)$ функция $x = f^{-1}(y)$, которая также непрерывно возрастает (убывает) на указанном отрезке.
+
+        $\blacktriangleright$ 
+        Так как $f(x)$ возрастает и непрерывна на $[a,b]$, то в силу необходимости теоремы о непрерывности монотонной функции множеством всех значений этой функции является отрезок $[a, \beta]$. Но тогда на этом отрезке существует возрастающая обратная функция $x=f^{-1}(y)$ в силу биективности правила $f$, которая следует из возрастания. Непрерывность обратной функции вытекает из того, что $[a,b]$ - множество всех значений обратной функции и достаточности для нее из теоремы о непрерывности монотонной функции. Для убывающей функции доказательство аналогично.  
+        $\blacktriangleleft$\\
+    % 132
+    \section{О локальной ограниченности функции, имеющей конечный предел}
+
+    \section{Устойчивость знака непрерывной в точке функции}
+
+    \section{Первая теорема Вейерштрасса о непрерывности}
+
+        % $\blacktriangleright$ $\blacktriangleleft$\\
+
+\end{document}
