@@ -16,7 +16,7 @@ RUN sed -i -e 's/Listen 80/Listen 80\nServerName localhost/' /etc/apache2/ports.
 # Добавляем ServerName в файле после строки Listen 80
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]
-# Запускаем apache2 с именем server
+# Запускаем apache2 с именем FOREGROUND
 
 EXPOSE 80
 # Открываем 80 порт для нашего контейнера
