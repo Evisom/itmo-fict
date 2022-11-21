@@ -1,0 +1,14 @@
+FROM debian:latest
+# с
+LABEL version="1.0" maintainer="Dmitriy Shishmintsev"
+
+RUN apt-get update
+RUN apt-get install -y apache2
+
+COPY ./index.html /var/www/html/index.html
+
+RUN sed -i -e 's/Listen 80/Listen 80\nServerName localhost/' /etc/apache2/ports.conf
+
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+EXPOSE 80
