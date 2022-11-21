@@ -15,7 +15,7 @@ COPY ./index.html /var/www/html/index.html
 RUN sed -i -e 's/Listen 80/Listen 80\nServerName localhost/' /etc/apache2/ports.conf
 # Добавляем ServerName в файле после строки Listen 80
 
-CMD ["apache2ctl", "-D", "server"]
+CMD ["apache2ctl", "-D", "FOREGROUND"]
 # Запускаем apache2 с именем server
 
 EXPOSE 80
