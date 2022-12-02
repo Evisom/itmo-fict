@@ -11,6 +11,8 @@ tests = [
     '((())))',
     '((()))(',
     '()))((())))'
+    '(()))(()',
+    '()(()'
 ]
 
 def isCorrect(s):
@@ -21,9 +23,9 @@ def isCorrect(s):
         if s[i] == ')':
             depth-=1
         if depth < 0:
-            return i
+            return i+1
     if depth != 0:
-        return len(s) - i
+        return len(s) - depth -1
     return True 
 
 
