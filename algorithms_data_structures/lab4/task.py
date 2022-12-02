@@ -60,9 +60,9 @@ if option1 != "4":
         print(sort.heapsort(array))
 else:
     array = []
-    ln = 100000
+    ln = 1000000000
     for i in range(0, ln+1):
-        array.append(random.randint(0, 1000000))
+        array.append(random.randint(0, 100000000000000))
     starttime = timeit.default_timer()
     sort.quicksort(array)
     print("Quick sort - ", timeit.default_timer() - starttime)
