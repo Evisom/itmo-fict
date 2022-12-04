@@ -25,7 +25,7 @@ def isCorrect(s):
         if depth < 0:
             return i+1
     if depth != 0:
-        return len(s) - depth -1
+        return len(s) - abs(depth) -1
     return True 
 
 
