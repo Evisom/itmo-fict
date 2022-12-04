@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/script.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+<div class="wrapper">
+        <div class="header">
+            <div class="header-title">itmo finance tracker</div>
+        </div>
+        <div class="main">
+            <div class="container">
+                <div class="block-title">
+                    Transactions
+                </div>
+            
+                <div class="tr-list" id="container">
+
+                </div>
+            </div>
+    
+            <div class="settings">
+                <div class="block-title">
+                    Sort & Filter
+                </div>
+                <select id="selectbox">
+                    <option>all</option>
+                </select>
+                <button id="reset">reset</button>
+                <div class="block-title">
+                    Add Transaction
+                </div>
+                <input id="name" placeholder="Name"> <br>
+                <input id="cost" placeholder="Cost"> <br>
+                <input type="date" id="date"> <br>
+                <input id="categories" placeholder="Category"> <br>
+                <button id="create">create</button>
+               
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

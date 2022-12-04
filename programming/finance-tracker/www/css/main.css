@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 16px;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.header {
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 16px;
+    margin-right: 16px;
+    margin-top: 40px;
+    border-radius: 32px;
+    border: 2px solid black;
+}
+
+.container {
+    border: 2px solid black;
+    border-radius: 32px;
+    /* width: 45%; */
+    width: 60%;
+    padding: 16px;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: auto
+}
+
+.settings {
+    border-radius: 32px;
+    border: 2px solid black;
+    /* width: 45%; */
+    width: 40%;
+    padding: 16px;
+}
+
+.block-title {
+    font-size: 32px;
+}
+
+.transaction {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    border-bottom: 1px solid #000;
+}
+
+.deleteButton {
+    background: none;
+    border: none;
+    font-size: 18px;
+    padding-bottom: 2px;
+    opacity: 0;
+}
+
+.transaction:hover .deleteButton {
+    opacity: 1;
+}
+.tr-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.tr-name {
+    width: 35%;
+}
+.tr-cost {
+    width: 15%;
+}
+.tr-date{
+    width: 25%;
+}
+.tr-cat {
+    width: 20%;
+}
