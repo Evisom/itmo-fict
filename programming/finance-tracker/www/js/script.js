@@ -16,10 +16,10 @@ function request(r, callback) {
 }
 
 
-const sort = (arr) => {
+const sort = (arr, index) => {
     for (let i = 1; i < arr.length; i++) {
       for (let j = 0; j < arr.length - i; j++) {
-        if (arr[j][2] > arr[j + 1][2]) {
+        if (arr[j][index] > arr[j + 1][index]) {
           [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
         }
       }
@@ -65,11 +65,14 @@ window.onload = () =>{
         }, (response)=> {
             console.log(response);
             if (sortReverse == false) {
-                response = sort(response)
+                response = sort(response, 2)
             } else if (sortReverse == true) {
-                response = sort(response)
+                response = sort(response, 2)
                 response = response.reverse()
+            } else {
+                response = sort(response, 3).reverse()
             }
+            
             for (let i = 0; i < response.length; i++) {
                 container.innerHTML+=transaction(response[i])
             }

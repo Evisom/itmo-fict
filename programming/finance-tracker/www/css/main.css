@@ -51,6 +51,7 @@ html,body {
     /* width: 45%; */
     width: 40%;
     padding: 16px;
+    height: fit-content;
 }
 
 .block-title {
@@ -113,4 +114,22 @@ button, input, select {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+.header-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    width: 100%;
+}
+
+.add-tr > * {
+    width: 100%;
+}
+
+
+.cat {
+    width: 25%;
 }
