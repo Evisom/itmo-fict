@@ -72,3 +72,23 @@ def getCategories():
         return jsonify(r)
     else:
         return jsonify({'status':'bad_request'})
+
+@app.route('/getByCategory' , methods = ['GET'])
+def getByCategory():
+    args = request.args
+    if 'category' in args.keys():
+        r = db_getByCategory(args['category'])
+        return jsonify(r)
+    else:
+        return jsonify({'status':'bad_request'})        
+    
+
+@app.route('/getByDate' , methods = ['GET'])
+def getByDate():
+    args = request.args
+    if 'startDate' in args.keys() and 'endDate' in args.keys():
+        r = db_getByDate(args['startDate'], args['endDate'])
+        print(r)
+        return jsonify(r)
+    else:
+        return jsonify({'status':'bad_request'})       

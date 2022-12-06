@@ -56,3 +56,11 @@ def db_delete(data):
 
 def db_getCategories():
     return request('SELECT DISTINCT categories FROM transactions;')
+
+def db_getByCategory(cat):
+    return request('SELECT * FROM transactions WHERE categories = "' + cat + '";')
+
+def db_getByDate(start,end):
+    start = str(int(start) - 1)
+    end = str(int(end) + 1)
+    return request('SELECT * FROM transactions WHERE date > ' + start + ' AND date <' + end + ';')    
