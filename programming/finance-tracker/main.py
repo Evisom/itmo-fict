@@ -9,8 +9,6 @@ import os.path
 from flask import Flask, Response, jsonify, request
 app = Flask(__name__)
 
-
-
 def getFile(filename):
     try:
         src = os.path.join('./www', filename)

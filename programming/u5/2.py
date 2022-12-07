@@ -26,18 +26,28 @@ while flag:
     elif mode == '0':
         r = correctInput('Введите радиус: ')
         s = math.pi * r**2
-        print('Площадь круга:', s)
+        if r > 0:
+            print('Площадь круга:', s)
+        else:
+            print('Радиус меньше нуля!')
     elif mode == '1':
         a = correctInput('Введите первую сторону: ')
         b = correctInput('Введите вторую сторону: ')
+        
         s = a*b
-        print('Площадь прямоугольника:', s)
+        if a > 0 and b > 0:
+            print('Площадь прямоугольника:', s)
+        else:
+            print('Некорректный ввод!')
     elif mode == '2':
         a = correctInput('Введите первую сторону: ')
         b = correctInput('Введите вторую сторону: ')     
         c = correctInput('Введите третью сторону: ') 
         p = a+b+c
         s = (p*(p-a)*(p-b)*(p-c))**(1/2)
-        print('Площадь треугольника:', s)
+        if (a+b) > c and (a + c) > b and (b+c) > a:
+            print('Площадь треугольника:', s)
+        else:
+            print('Треугольника не существует')
     else:
         print('Некорректный ввод!')
