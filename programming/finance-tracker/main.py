@@ -45,24 +45,6 @@ def getAllTransations():
     else:
         return jsonify({'status':'server_error'})
 
-@app.route('/createTransaction', methods = ['POST'])
-def createTransaction():
-    data = request.json
-    if db_write(data):
-        return jsonify({'status':'ok'})
-    else:
-        return jsonify({'status':'bad_request'})
-
-@app.route('/deleteTransaction', methods = ['POST'])
-def deleteTransaction():
-    print(request)
-    data = request.json
-    if db_delete(data):
-        return jsonify({'status':'ok'})
-    else:
-        return jsonify({'status':'bad_request'})
-
-
 @app.route('/getCategories', methods = ['GET'])
 def getCategories():
     r = db_getCategories()
@@ -90,3 +72,21 @@ def getByDate():
         return jsonify(r)
     else:
         return jsonify({'status':'bad_request'})       
+
+
+@app.route('/createTransaction', methods = ['POST'])
+def createTransaction():
+    data = request.json
+    if db_write(data):
+        return jsonify({'status':'ok'})
+    else:
+        return jsonify({'status':'bad_request'})
+
+@app.route('/deleteTransaction', methods = ['POST'])
+def deleteTransaction():
+    print(request)
+    data = request.json
+    if db_delete(data):
+        return jsonify({'status':'ok'})
+    else:
+        return jsonify({'status':'bad_request'})
