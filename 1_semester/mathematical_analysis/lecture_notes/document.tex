@@ -1,0 +1,203 @@
+\documentclass[14pt]{extreport}
+\usepackage{gost}
+
+\title{Конспект лекций по математическому анализу}
+\author{Шишминцев Дмитрий Владимирович}
+
+\begin{document}
+    \maketitle 
+    \newpage 
+    \tableofcontents
+    \newpage
+    \chapter{Основы анализа}
+        \section{Множества}
+            \begin{definition}
+                Множество - совокупность элементов одной природы и некоторым общим свойством позволяющим объеденить их в одно целое.    
+            \end{definition}
+            
+
+            \textsc{Обозначения:}
+            \begin{itemize}
+                \item $A, B, C$ - множества, $a,b,c$ - элементы множества 
+                \item $\forall$ - квантор общности (для каждого)
+                \item $\exists$ - найдется
+                \item $\mathbb{X/E/U}$ - универсальные множества 
+                \item $\emptyset$ - пустое множество 
+                \item ! - единственность 
+                \item $\rightarrow$ - следовательно 
+            \end{itemize}
+
+            \textsc{Операции над множествами:}
+            \begin{itemize}
+                \item $A  \cap B$ - объединение множеств (коммутативно и ассоциативно)
+                \item $A \cup B$ - пересечение множеств (коммутативно и ассоциативно)
+                \item $ A \backslash B $ - разность множеств 
+                \item $\bar{A}$ - отрицание
+                \item $A \varDelta B$ - симметрическая разность $(A \cup B) \backslash (A \cap B)$
+                \item $A \times B = \{(x,y) | x \in A, y \in B \}$ - декартово произведение
+            \end{itemize}
+
+        \section{Отображения (функция)}
+        \begin{definition}
+            правило по которому $\forall x \in D \exists !y \in V$ 
+        \end{definition}
+            $F: D$ (область определения) $\rightarrow $ (правило перевода) $V $  (область значений)
+
+            \textsc{Вариативности функциональных отображений:}
+            \begin{itemize}
+                \item Сюръекция ($\forall y \in V: \exists x \in D$) - каждый элемент в области значений функции имеет прообраз в области определения
+                \item Инъекция ($ \forall y \in V : \exists ! x \in D$) - каждый элемент в области определения функции имеет образ в области значений. Не каждый образ имеет прообраз. 
+                \item Биекция ($ \forall F : A \rightarrow B \exists ! F^{-1} : B \rightarrow A $ ) - функция яаляется и сюръекцией и биекцией. 
+            \end{itemize}
+        
+        \section{Характеристики множеств}
+            \begin{definition}
+                Мощность (кардинальное число) -  количество различных элементов множества. 
+            \end{definition}
+
+            \begin{definition}
+                Эквивалентность множеств: множества эквивалентны $(A \sim B)$ если они равномощны. $\forall x \in X \exists ! y \in Y$ и $\forall y \in Y \exists ! x \in X$
+            \end{definition}
+                
+            \begin{definition}
+                Счетность множеств: множество счетно (исчислимо), если $A \sim \mathbb{N}$ 
+            \end{definition}
+
+            \begin{definition}
+                Мощность континуума: множество эквивалентное множеству точек отрезка $[0,1]$ имеет мощность континуума.
+            \end{definition}
+            
+            \begin{theorem}
+                Множество всех точек отрезка $[0;1] $ - несчетно
+            \end{theorem}
+
+            \begin{theorem}[Кантора-Бернштейна]
+                Если $A \sim B' (B' \subset  B) $ и $B \sim A' (A' \subset A) \Rightarrow A \sim B$\\
+                Если $A \subset B \subset C$, причем $A \sim C \Rightarrow A \sim B$
+            \end{theorem}
+
+            \begin{definition}[Сравнение мощностей множеств]
+                $\exists B' \in B: B' \sim A$ и $\nexists A' \in A: A' \sim B \Rightarrow |A| < |B|$
+            \end{definition}
+        
+        \section{Множества чисел}
+        \begin{itemize}
+            \item $\mathbb{N}$ - натуральные числа $\{1,2,3...\}$
+            \item $\mathbb{Z} $ - целые числа $\{-1, 0, 1, 2..\}$ 
+            \item $\mathbb{Q}$ - рациональные числа $\{\frac{2}{3},0.(3)\}$
+            \item $\mathbb{R}$ - вещественные (действительные числа) $\{\sqrt{2}, \pi, e \}$
+            \item $\mathbb{C} $ - комплексные 
+        \end{itemize}
+        $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q} \subset \mathbb{R} \subset \mathbb{C}$
+        
+        \textsc{Основные свойства вещественных чисел:}
+        \begin{itemize}
+            \item Транзитивность ($a>b, b>c \rightarrow a > c$)
+            \item Ассоциативность $(a+(b+c) = (a+b)+c)$
+            \item Коммутативность $a+b = b+a$
+            \item Дистрибутивность $(a+b)\cdot c = a \cdot c + b \cdot c$
+            \item $\forall a,b \in \mathbb{R} \exists ! c \in \mathbb{R}: a+b=c$
+            \item $\forall a \neq 0 \exists! a^{-1}: a \cdot a^{-1} = 1$
+        \end{itemize}
+            
+        \textsc{Грани множеств:}
+
+        \begin{itemize}
+            \item $\forall b \in \mathbb{R}:\forall a \in A \rightarrow a \leq b$ - верхняя грань 
+            \item $\forall d \in \mathbb{R}:\forall a \in A \rightarrow d \leq a$ - нижняя грань 
+        \end{itemize}
+
+            Грани не единственны
+
+        \begin{definition}
+            Точная верхняя/нижняя грань - минимальный/максимальный элемент множества верхних/нижних граней множеств. 
+        \end{definition}
+
+
+        \textsc{Свойство точной верхней грани:}
+
+        Если $ b = \sup A$, то $\forall \epsilon > 0 \exists a \in A: a > b - \epsilon$
+
+        $\blacktriangleright$
+            Допустим обратное. Тогда $a \leq b - \epsilon$ А это невозможно т.к b является наименьшей верхней гранью.
+        $\blacktriangleleft$
+    
+        \textsc{Свойство нижней верхней грани:}
+
+        Если $ d = \inf A$, то $\forall \epsilon > 0 \exists a \in A: a < d + \epsilon$
+
+        $\blacktriangleright$
+            Док-во аналогично свойству точной верхней грани. 
+        $\blacktriangleleft$
+
+        \begin{theorem}[Принцип вложенных отрезков]
+            Пусть $\{[a_n, b_n]\}^{\inf}_{n=1}: \forall n \in \mathbb{N} \rightarrow [a_{n+1}, b_{n+1} \subset [a_n, b_n]]$ тогда $\exists ! c \in \mathbb{R}: \forall n \in \mathbb{N} \rightarrow c \in [a_n, b_n]$
+        \end{theorem}
+        $\blacktriangleright$
+            Пусть длина отрезка - $d(n) = b_n - a_n. \forall k \in \mathbb{N} \rightarrow d(1) > d(k)$. Пусть $c := \sup a_n \Rightarrow \forall n \rightarrow a_n \leq c \leq b_n. \forall n \rightarrow c \leq b_n \Rightarrow c \in [a_n, b_n]$. Единственность точки следует из стремления длин отрезков к нулю.
+        $\blacktriangleleft$
+
+    \section{Метод математической индукции}
+        Для обоснования ММИ используем свойство натуральных чисел: $\forall A \subset \mathbb{N}: A \neq \emptyset \exists a' \in A: \forall a \in A \rightarrow a' \leq a$. Метод математической индукции для док-ва утверждения на множестве $A$ состоит из шагов:
+        \begin{itemize}
+            \item База индукции - проверяем справедливость на $a'$
+            \item Индукционное предположение - проверяем для произвольного элемента $a_k \in A$
+            \item Индукционный шаг - доказываем справедливость для $a_{k+1} \in A$
+        \end{itemize}
+
+    \section{Бином Ньютона}
+        \begin{equation}
+            (1+x)^n = \sum^n_{k=0} C^k_n x^k
+        \end{equation}
+        $C^k_n =\binom{n}{k}= \frac{n!}{k!(n-k)!}$ - биноминальный коэффициент\\
+        $\binom{n}{k} + \binom{n}{k+1} = \binom{n+1}{k+1}$
+
+        $\blacktriangleright$
+            По методу математической индукции. 
+            При $n=1. 1+x = C^0_1 + C^1_1 x = 1+x$
+            При $n=t$ формула так же верна. \\ 
+            При $n=t+1 \\ (1+x)^{t+1} = (1+x)^t(1+x) = \binom{t}{0}x^0 + ... + \binom{t}{t}x^t + \binom{t}{0} x + ... + \binom{t}{t}x^{t+1} = \binom{t+1}{0} + \binom{t+1}{1}x + ... + \binom{t+1}{t+1} x^{t+1}$
+        $\blacktriangleleft$
+
+    \section{Неравенство Бернулли}
+        \begin{equation}
+            (1+x)^n > 1 + xn
+        \end{equation}
+        При $x>-1, x\neq 0, n \geq 2$ \\ 
+        Док-во по ММИ.
+
+
+\chapter{Пределы}
+        \section{Предел числовой последовательности}
+            \begin{definition}[Числовая последовательность]
+                
+                $\\\beth x_n = f(n), f:\mathbb{N} \rightarrow \mathbb{R}$
+            \end{definition}
+
+            Операции с числовыми последовательностями выполняются почленно. 
+        
+                \begin{definition}[Ограниченность последовательности]
+                    $\\ \exists A \in \mathbb{R} : \forall n \in \mathbb{N} \rightarrow |x_n| \leq A$
+                \end{definition}
+
+
+                \begin{definition}[Бесконечно большая последовательность]
+                    Последовательность называется бесконечно большой, если множество членов удовлетворяющих условию $|x_n| \leq c$ конечно.
+                    $\\ \forall c > 0 \exists n(c) \in \mathbb{N} : \forall n > n(c) \rightarrow |x_n| > c$
+                \end{definition}
+                
+                \begin{definition}[Бесконечно малая последовательность]
+                    Последовательность называется бесконечно малой, если множество членов удовлетворяющих условию $|x_n| \geq c$ конечно.
+                    $\\ \forall c > 0 \exists n(c) \in \mathbb{N} : \forall n > n(c) \rightarrow |x_n| < c$
+                \end{definition}
+
+                \begin{theorem}[Ограниченность бесконечно малой последовательности]
+                    Если ${x_n}$ - б.м.п $\Rightarrow \forall n \in \mathbb{N} \rightarrow |x_n| < C, C \in \mathbb{R}_+$
+                \end{theorem}
+                $\blacktriangleright$
+                    По определению бесконечно малой последовательности, кол-во элементов $|x_n| \geq C$ конечно. Возьмем $C = max(|x_1|, |x_2|, ... , |x_n|)$. Получим $\forall n \in \mathbb{N} \rightarrow |x_n| < C$
+                $\blacktriangleleft$
+
+        % $\blacktriangleright$ $\blacktriangleleft$
+        
+\end{document}
