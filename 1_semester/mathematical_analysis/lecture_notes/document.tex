@@ -131,7 +131,7 @@
         $\blacktriangleleft$
 
         \begin{theorem}[Принцип вложенных отрезков]
-            Пусть $\{[a_n, b_n]\}^{\inf}_{n=1}: \forall n \in \mathbb{N} \rightarrow [a_{n+1}, b_{n+1} \subset [a_n, b_n]]$ тогда $\exists ! c \in \mathbb{R}: \forall n \in \mathbb{N} \rightarrow c \in [a_n, b_n]$
+            Пусть $\{[a_n, b_n]\}^{\infty}_{n=1}: \forall n \in \mathbb{N} \rightarrow [a_{n+1}, b_{n+1} \subset [a_n, b_n]]$ тогда $\exists ! c \in \mathbb{R}: \forall n \in \mathbb{N} \rightarrow c \in [a_n, b_n]$
         \end{theorem}
         $\blacktriangleright$
             Пусть длина отрезка - $d(n) = b_n - a_n. \forall k \in \mathbb{N} \rightarrow d(1) > d(k)$. Пусть $c := \sup a_n \Rightarrow \forall n \rightarrow a_n \leq c \leq b_n. \forall n \rightarrow c \leq b_n \Rightarrow c \in [a_n, b_n]$. Единственность точки следует из стремления длин отрезков к нулю.
@@ -168,7 +168,7 @@
 
 
 \chapter{Пределы}
-        \section{Предел числовой последовательности}
+        \section{Числовая последовательность и ее свойства}
             \begin{definition}[Числовая последовательность]
                 
                 $\\\beth x_n = f(n), f:\mathbb{N} \rightarrow \mathbb{R}$
@@ -197,7 +197,454 @@
                 $\blacktriangleright$
                     По определению бесконечно малой последовательности, кол-во элементов $|x_n| \geq C$ конечно. Возьмем $C = max(|x_1|, |x_2|, ... , |x_n|)$. Получим $\forall n \in \mathbb{N} \rightarrow |x_n| < C$
                 $\blacktriangleleft$
+                
+                \begin{theorem}[Арифметика бесконечно малых последовательностей]
+                    $\\$
+                        \begin{itemize}
+                            \item Если $\{x_n\}$ - б.м.п, то и $\{|x_n|\}$ - б.м.п
+                            \item Сумма/разность конечного кол-ва б.м.п - б.м.п
+                            \item Произведение б.м.п на ограниченную последовательность - б.м.п $\blacktriangleright$ 
+                                $\{x_n\} - $ б.м.п; $\{y_n\} - $  ограниченная последовательность, $C$ - грань $\{y_n\}$
+                                $\forall \epsilon > 0: \exists N : \forall n \in \mathbb{N} => |x_n| < \frac{\epsilon}{M} \Rightarrow |x_n \cdot y_n| = |x_n| \cdot |y_n| < \frac{\epsilon}{M} \cdot M = \epsilon$
+                            $\blacktriangleleft$
+                        \end{itemize}
+                \end{theorem}
+            \section{Предел числовой последовательности}
+                \begin{definition}[Сходщаяся последовательность]
+                    Последовательность $\{x_n\}$ называется сходящейся (имеющей предел), если $\forall \epsilon > 0 \exists n(\epsilon) \in \mathbb{N} : \forall n > n (\epsilon) \rightarrow |x_n - a | < \epsilon$ или же $x_n \in U_\epsilon (a)$
+                \end{definition}
 
-        % $\blacktriangleright$ $\blacktriangleleft$
+                \begin{theorem}[О единственности предела последовательности]
+                    Если последовательность сходится, то она имеет единственный предел.
+                \end{theorem}
+                $\blacktriangleright$ Предположим обратное
+                    $\\ \lim_{n\rightarrow\infty}x_n = a \\ \lim_{n\rightarrow\infty}x_n = b \\ $
+                    где $a>b, \epsilon = \frac{a-b}{2} > 0$, тогда $\forall n > n(\epsilon) \rightarrow a - \epsilon < x_n < b+\epsilon$ Получается, что $a-\epsilon = b+\epsilon = \frac{a+b}{2}$
+                $\blacktriangleleft$
+
+            \section{Свойства сходящихся последовательностей}
+            \begin{itemize}
+                \item Предел б.м.п = 0
+                \item Сходящаяся последовательность ограничена 
+                \item Не всякая сходящаяся последовательность является ограниченной
+                \item $\lim_{n\rightarrow\infty}(x_n \pm y_n) = \lim_{n\rightarrow\infty}x_n \pm \lim_{n\rightarrow\infty}y_n$
+                \item $\lim_{n\rightarrow\infty}(x_n \cdot y_n) = \lim_{n\rightarrow\infty}x_n \cdot \lim_{n\rightarrow\infty}y_n$
+                \item $\forall n \in \mathbb{N}: y_n \ne 0,  \lim_{n\rightarrow\infty}y_n \ne 0 \Rightarrow  \lim_{n\rightarrow\infty} \frac{x_n}{y_n} = \frac{ \lim_{n\rightarrow\infty}x_n }{ \lim_{n\rightarrow\infty}y_n } $
+            \end{itemize}
+
+            \begin{theorem}
+                Если $\lim_{n\rightarrow\infty} x_n = a \neq 0 \Rightarrow \exists n' \in \mathbb{N}: \forall n > n' \rightarrow |x_n| > \frac{1}{2}|a|$ при $a>0$, и $x_n < \frac{1}{2}|a|$ при $a < 0$
+            \end{theorem}
+
+            $\blacktriangleright$
+                $|x_n - a| < \frac{1}{2}|a| \Leftrightarrow a - \frac{1}{2}|a| < x_n < a + \frac{1}{2}|a|$
+            $\blacktriangleleft$
+
+            \begin{theorem}[О сравнении пределов]
+                $\forall n \in \mathbb{N} \rightarrow x_n \leq y_n \Rightarrow \lim_{n\rightarrow\infty}x_n \leq \lim_{n\rightarrow\infty}y_n$
+            \end{theorem}
+            $\blacktriangleright$ 
+                $a\leq b$ Предположим обратное, $a>b$. Пусть $\epsilon = \frac{a-b}{2}$ Получаем $x_n > a - \epsilon \rightarrow x_n > \frac{a+b}{2}, y_n < b + \epsilon \rightarrow y_n < \frac{a+b}{2}$
+            $\blacktriangleleft$
+
+            \begin{theorem}[о двух миллиционерах]
+                 Пусть $\lim_{n\rightarrow\infty}x_n = \lim_{n\rightarrow\infty}y_n = a$, тогда $\forall n \in \mathbb{N} \rightarrow x_n \leq y_n \Rightarrow \forall \{z_n\}: \forall n \rightarrow x_n \leq z_n \leq y_n$ справедливо, что $\lim_{n\rightarrow\infty}z_n = a$
+            \end{theorem}
+            $\blacktriangleright$
+                $a - \epsilon < x_n \leq z_n \leq y_n < a + \epsilon \rightarrow z_n \in (a-\epsilon, a+\epsilon)$
+            $\blacktriangleleft$
+
+            \section{Монотонная последовательность}
+
+            \begin{definition}[Монотонная последовательность]
+                Последовательность называется возрастающей $(\{x_n\} \uparrow)$, если $\forall n \in \mathbb{N} \rightarrow x_{n+1} \geq x_n$, убывающей, если $x_{n+1} \leq x_n$. В случае выполнения строгого неравенства, называется строго возрастающей/убывающей.
+            \end{definition}
+
+            \begin{theorem}[Вейерштрасса]
+                    Если неубывающая/невозрастающая последовательность ограничена сверху/снизу, то она сходится к $sup x_n$
+            \end{theorem}
+            $\blacktriangleright$ 
+                Пусть $C$ - верхняя граница последовательности. Тогда $\exists x_k > C-\epsilon$. Так как последовательность является монотонной, то все члены последовательности начиная с $x_k$ удовлетворяет неравенству $C-\epsilon < x_k \leq C \Rightarrow \lim_{n\rightarrow\infty} x_n = C$
+            $\blacktriangleleft$  
+            
+            \begin{definition}[Эйлерова константа]
+                \begin{equation}
+                    e:= \lim_{n\rightarrow\infty} (1 + \frac{1}{n})^n
+                \end{equation}
+            \end{definition}
+
+            \begin{theorem}[Теорема Штольца]
+                $\{y_n\} $ - неограниченная неубывающая последовательность. Если существует предел $\lim_{n\rightarrow\infty} \frac{x_{n+1} - x_n}{y_{n+1} - y_n} = l$, то тогда существует $\lim_{n\rightarrow\infty} \frac{x_n}{y_n} = l$
+            \end{theorem}
+            $\blacktriangleright$ 
+                $\lim_{n\rightarrow \infty } \frac{x_{n+1}-x_n}{y_{n+1}-y_n} = l \Rightarrow \frac{x_{n+1}-x_n}{y_{n+1}-y_n} = l + a_n$, где $a_n$ - б.м. $\Rightarrow \forall \epsilon > 0 \exists n(\epsilon) : \forall n \geq n(\epsilon) \rightarrow |a_n| < \frac{\epsilon}{2}$. Домножим на $(y_{n+1} - y_n)$. \\ $x_{n+1} - ly_{n+1} = x_n - ly_n + a_n (y_{n+1} - y_n)$
+                \\ Сложим все равенства от$n(\epsilon)+1$ до $n+1$\\ 
+                $x_{n+1} - ly_{n+1} = x_{n(\epsilon)} - ly_{n(\epsilon)}+ \sum_{i=n(\epsilon)}^n a_i (y_{i+1} - y_i)$
+                Получается, что: \\ 
+                $|x_{n+1} - ly_{n+1}| \leq |x_{n(\epsilon)} - ly_{n(\epsilon)}|+|a_{n(\epsilon)} \cdot |y_{n(\epsilon)} - y_{n(\epsilon)}| \dots |a_n|\cdot |y_{n+1} - y_n|$ \\
+                Так как $|a_n| < \frac{\epsilon}{2}$ , получается: \\ 
+                $|x_{n+1} - ly_{n+1}| \leq |x_{n(\epsilon)} - ly_{n(\epsilon)}|+\frac{\epsilon}{2} |y_{n(\epsilon)} - y_{n(\epsilon)}| \dots\frac{\epsilon}{2} |y_{n+1} - y_n| \qquad | : (y_{n+1})$  \\ 
+                $|\frac{x_{n+1}}{y_{n+1}} - l| < \frac{|x_{n(\epsilon) - ly_{n(\epsilon)}}|}{y_{n+1}} + \frac{\epsilon}{2} \frac{y_{n+1} - y_{n(\epsilon)}}{y_{n+1}}$. \\ 
+                Так как ${y_n}$ стремится к $+\infty \Rightarrow \exists n_1(\epsilon):\forall n > n_1 \rightarrow \frac{|x_{n(\epsilon) - ly_{n(\epsilon)}}|}{y_{n+1}} < \frac{\epsilon}{2}$ \\ 
+                Полагая $n_0 = max{n_1, n(\epsilon)}$ получаем, что $\forall n > n_0 \rightarrow |\frac{x_{n+1}}{y_{n+1} } - l| < \epsilon$, следовательно $\frac{x_n}{y_n} \rightarrow l$ при $n\rightarrow\infty$
+
+            $\blacktriangleleft$
+
+
+            \begin{definition}
+                Подпоследовательность - последовательность вида $y_n = x_{k_n}$, гдe $\{x_n\}$ - некая последователньость, а $\{k_n\} $ - некая строго возрастающая последовательность натуральных чисел.
+            \end{definition}
+
+            Свойства подпоследовательностей:
+            \begin{itemize}
+                \item Если последовательность сходится к $a$, то все ее подпоследовательности тоже сходятся к $a$
+                \item Все подпоследовательности, как и сама последовательность, если они сходятся, то сходятся к одному и тому же пределу.
+            \end{itemize}
+
+
+            \begin{definition}
+                Точка $a \in \bar{\mathbb{R}} = \mathbb{R} \cup \{\pm \infty\}$ называется предельной точкой последовательности, если $\forall \epsilon > 0 в U(a, \epsilon)$ содержится бесконечно много элементов этой последовательности. 
+            \end{definition}
+
+            \begin{definition}
+                Точка $a \in \bar{\mathbb{R}} = \mathbb{R} \cup \{\pm \infty\}$ называется предельной точкой последовательности, если из этой последовательности можно выделить подпоследовательность сходящуюся к $a$.
+            \end{definition}
+
+            \begin{definition}
+                Наибольшая предельная точка последовательности называется верхним пределом, а наименьшая - нижний
+            \end{definition}
+
+            \begin{theorem}
+                У всякой ограниченной последовательности существуют верхний и нижний пределы и хотя бы одна предельная точка.
+            \end{theorem}
+
+            \begin{theorem}[теорема Больцано-Вейерштрасса]
+                Из всякой ограниченной последовательности можно выделить сходящуюся подпоследовательность.
+            \end{theorem}
+
+            \begin{theorem}[критерий Коши]
+                Для сходимости последовательности необходимо и достаточно, что бы она была фундаментальной (выполнялось условие Коши) \\
+                \textsc{Условие Коши:} $\forall \epsilon > 0 \exists n(\epsilon) \in \mathbb{N} : \forall n,p \in \mathbb{N}: n, m > n(\epsilon) \rightarrow |x_n - x_m| < \epsilon$
+            \end{theorem}
+
+            $\blacktriangleright$
+                \textsc{Необходимость:} $\forall \epsilon > 0 \exists n(\epsilon) \in \mathbb{N}: \forall n > n(\epsilon) \rightarrow |x_n - a| < \frac{\epsilon}{2}$, теперь если $m,m>n(\epsilon)$, то $|x_n-x_m| = |x_n -a = (x_m - a) \leq |x_n -a| + | x_m - a| < \frac{\epsilon}{2} + \frac{\epsilon}{2} < \epsilon$ \\
+                \textsc{Достаточность: } $|x_n - x_{n(\epsilon)}| < \epsilon \Rightarrow |x_n| \leq |x_{n(\epsilon)} + \epsilon|$. Из этого следует что последовательность ограничена. По Т. Больцано-Вейерштрасса из нее можно выделить сходящуюся подпоследовательность. $|x_n - x_{k_n}| < \frac{\epsilon}{2}$, где $x_{k_n}$ - элемент сходящейся подпоследовательности. Переходя к пределу при $k\rightarrow\infty$ получаем $|x_n - a| < \frac{\epsilon}{2}$ 
+            $\blacktriangleleft$
         
+        \chapter{Предел функции}
+
+            \begin{definition}[предел функции в точке по Гейне]
+            $\\ \forall \{x_n\}_{n=1}^{\infty}:(x_{n} \xrightarrow{n\rightarrow\infty}a $ и $\forall n \in \mathbb{N} \rightarrow x_n \neq a) \rightarrow f(x_n) \xrightarrow{n\rightarrow\infty}b$
+            \end{definition}
+
+            \begin{definition}[предел функции в точке по Коши]
+                $\\ \forall \epsilon > 0 \exists \delta(\epsilon) > 0: \forall x : 0 < |x-a| < \delta \rightarrow |f(x) - b| < \epsilon$
+            \end{definition}
+
+            \begin{theorem}
+                Определения по Коши и Гейне являются эквивалентными. 
+            \end{theorem}
+            $\blacktriangleright$ понять и написать док-во$\blacktriangleleft$
+
+
+            \textsc{Свойства пределов:}
+            \begin{itemize}
+                \item $\lim_{x\rightarrow a} (f(x) \pm g(x)) = \lim_{x\rightarrow a} f(x) \pm \lim_{x\rightarrow a} g(x)$
+                \item $\lim_{x\rightarrow a} (f(x) \cdot g(x)) = \lim_{x\rightarrow a} f(x) \cdot \lim_{x\rightarrow a} g(x)$
+                \item $\lim_{x\rightarrow a} \frac{f(x) }{g(x)} = \frac{\lim_{x\rightarrow a} f(x)}{\lim_{x\rightarrow a} g(x)}$
+            \end{itemize}
+
+            \begin{definition}[односторонний предел по Гейне]
+                $\\ \forall \{x_n\}_{n=1}^{\infty}:(x_{n} \xrightarrow{n\rightarrow\infty}a $ и $\forall n \in \mathbb{N} \rightarrow x_n > a) \rightarrow f(x_n) \xrightarrow{n\rightarrow\infty}b$
+                $\\ x_n > a $ для правостороннего и $x_n < a $ для левостороннего
+            \end{definition}
+
+            \begin{definition}[односторонний предел по Коши]
+                $\\ \forall \epsilon > 0 \exists \delta(\epsilon) > 0: \forall x \in (a, a+\delta): \delta \rightarrow |f(x) - b| < \epsilon$
+                $\\ \forall x \in (a, a+\delta)$ для правостороннего предела и $ \forall x \in (a-\delta, a)$ для левостороннего предела
+            \end{definition}
+
+            \begin{theorem}
+                Если у функции $f(x)$ правосторонний и левосторонний предел в точке $a$, то она имеет предел в точке $a$
+            \end{theorem}
+
+            \begin{theorem}[критерий Коши]
+                Для существования конечного предела функции в точке $a$ необходимо и достаточно что бы выполнялось условие Коши: $\forall \epsilon > 0 \exists \delta = \delta(\epsilon) > 0: \forall x', x'' \in U(a, \delta) \rightarrow |f(x') - f(x'')| < \epsilon$
+            \end{theorem}
+
+            $\blacktriangleright$ 
+                \textsc{Необходимость:} Пусть $b$ - предел функции $f(x)$, тогда: $|f(x')-b| < \frac{\epsilon}{2}$ и $f(x'')-b| < \frac{\epsilon}{2} \Rightarrow |f(x') - f(x'')| = |f(x') -b -f(x'') + b| \leq |f(x') - b| + |f(x'') -b| < \frac{\epsilon}{2} + \frac{\epsilon}{2}$   \\ 
+                \textsc{Достаточность:} Согласно определению по Гейне, возьмем $x_n \in U(a): x_n \xrightarrow{n\rightarrow \infty} a$. Из условия Коши для последовательностей: $\forall \epsilon >0 \exists n(\epsilon) \in \mathbb{N}: \forall n \geq n(\epsilon) \rightarrow x_n \in U(a, \delta) \Rightarrow |f(x_n) - f(x_m)| < \epsilon, \forall n,m \geq n(\epsilon)$. Тогда последовательность $\{f(x_n)\}$ сходится в силу критерия Коши для последовательностей. 
+            $\blacktriangleleft$
+
+            
+            \textsc{Модификация условия Коши}:
+            \begin{itemize}
+                \item Для левостороннего предела: $a-\delta < x', x'' < a$
+                \item Для правостороннего предела: $a < x', x'' < a+\delta$
+                \item Для $x\rightarrow \infty: |x'|, |x''| > \delta$ 
+                \item Для $x\rightarrow -\infty: x', x'' <  -\delta$ 
+                \item Для $x\rightarrow +\infty: x', x'' > \delta$ 
+            \end{itemize}
+
+        
+            \begin{definition}
+                Функция называется бесконечно малой, если ее предел равен нулю
+            \end{definition}
+            \begin{definition}
+                Функция называется бесконечно большой в точке $a$ слева/справа, если ее односторонний предел равен $\pm \infty$
+            \end{definition}
+
+            \begin{definition}
+                Функция $f(x)$ является в точке $a$ бесконечно малой более высокого порядка, чем $g(x)$, если $\lim_{x\rightarrow a}\frac{f(x)}{g(x)} = 0$. В таком случае это обозначается $f(x) = o(g(x)) $ при $x \rightarrow a$. \\ 
+                $\exists U(a) : f(x) = g(x)c(x)$ при $x\rightarrow a$, где $c(x) \rightarrow 0$
+            \end{definition} 
+
+            \begin{definition}
+                Симовлом О обозначают любую функцию $f(x) = O(g(x))$ ограниченную относительно $g(x)$ \\ 
+                $|f(x)| \leq c |g(x)|$
+            \end{definition}
+
+            \textsc{Свойства для о/О:}
+                \begin{itemize}
+                    \item $o(c\cdot f(x)) = o(f(x)), c\neq 0$
+                    \item $o(f(x)) \pm o(g(x)) = o(f(x))$
+                    \item $o(f(x)) \cdot o(g(x)) = o(f(x)g(x))$
+                \end{itemize}
+
+            \textsc{Свойства для О:}
+                \begin{itemize}
+                    \item $O(o(f(x))) = o(f(x))$
+                    \item $O(O(f(x))) = O(f(x))$
+                    \item $o(O(f(x)))=o(f(x))$
+                \end{itemize}
+
+        \section{Эквивалентность}
+                \begin{definition}
+                    $f(x) \sim g(x)$, если $\lim_{x\rightarrow a} \frac{f(x)}{g(x)} = 1$
+                \end{definition}
+
+                \textsc{Эквивалентность при $x\rightarrow 0$: (при равенстве $+o(x)$)}
+                \begin{itemize}
+                    \item $\sin x \sim x$
+                    \item $1 - \cos x \sim \frac{x^2}{2}$
+                    \item $\tg x \sim x$
+                    \item $\arcsin x \sim x$
+                    \item $\arctg x \sim x$
+                    \item $a^{b(x)} - 1 \sim b(x) \ln (a)$
+                    \item $\ln(1+x) \sim x$
+                    \item $(1+x)^{a} - 1 \sim ax$
+                \end{itemize}
+
+                \begin{definition}[Первый замечательный предел]
+                    $$\lim_{x\rightarrow 0} \frac{\sin x}{x} = 1$$
+                \end{definition}
+                $\blacktriangleright$ разобрать и написать док-во$\blacktriangleleft$
+            
+        \section{Непрерывность функции}
+
+        \begin{definition}[непрерывность по Гейне]
+            $$\forall \{x_n\}: x_n \xrightarrow{n\rightarrow \infty} a, \{f(x_n)\} \xrightarrow{n\rightarrow\infty} f(a)$$
+        \end{definition}
+
+        \begin{definition}[непрерывность по Коши]
+            $$\forall \epsilon > 0 \exists \delta(\epsilon) > 0 : \forall x \in D(f): |x-a| < \delta \rightarrow |f(x) - f(a)| < \epsilon$$
+        \end{definition}
+
+        \begin{definition}[формальное определение односторонней непрерывности]
+            Функция непрерывна справа/слева если правый/левый предел равен $f(a)$
+        \end{definition}
+
+        \begin{theorem}[непрерывноть функций над арифметическими операциями]
+            $f(x), g(x)$ - непрерывны в точке $a$. Тогда $f(x) \pm g(x), f(x) \cdot g(x), \frac{f(x)}{g(x)}$ непрерывны в точке $a$.          
+        \end{theorem}
+
+        $\blacktriangleright$ Так как функции в точке $a$ имеют пределы, соответственно равныы $f(a), g(a)$ то существуют пределы $f(a) \pm g(a) $ и тд. Т.к предел равен значению, то значит по определению эти функции непрерывны в точке $a$ $\blacktriangleleft$
+
+        \begin{theorem}[о непрерывности сложной функции]
+            $x = \phi(t)$ непрерывна в точке $a$, а функция $y=f(x)$ непрерывна в точке $b=\phi(a) \Rightarrow y=f(\phi(t))$ непрерывна в точке $a$
+        \end{theorem}
+
+        $\blacktriangleright$
+            Пусть $\{t_n\}$ - последовательность значений сложной функции сходящейся к $a$.
+            Так как $x=\phi(t)$ непрерывна и сходится к $a \Rightarrow $ последовательность аргументов сходится к $b=\phi(t)$ по определению по Гейне. 
+            Так как $y=f(x)$ непрерывна в точке $b=\phi(\epsilon)$ и $\{x_n\}$ сходится к $b=\phi(a)$ и является последовательностью значений аргументов, то соотсветствующая последовательность функции $f=[\phi(t)]$ сходится к $f(b) = f[\phi(a)]$
+        $\blacktriangleleft$
+
+
+        \begin{theorem}[существование односторонних пределов монотонной на отрезке функции]
+            Если функция $f(x)$ монотонна на отрезке $[a,b]$, то у нее существует правый и левый предел в любой внутренней точке отрезка, так же существует правый предел в точке $a$ и левый предел в точке $b$.
+        \end{theorem}
+        $\blacktriangleright$
+            Т.к функция монотонна, то $\forall x \in [a; x_n] \rightarrow f(x) \leq f(x_0)$. Т.к множество значений функции ограниченой сверху, то по теоереме о точной верхней грани существует $\sup ((f(x)) = M \leq f(x_9)) \Rightarrow \forall \epsilon > 0 \exists \delta = x_0 - x_\epsilon > 0: \forall x \in (x_0 - \delta; x_0) \rightarrow |M - f(x_0)| < \epsilon$
+        $\blacktriangleleft$
+
+
+        \begin{theorem}[непрерывность монотонной функции]
+            Для того что бы монотонная функция являлась непрерывной на отрезеке $[a,b]$, необходимо и достаточно что бы лбое число $c: f(a)<c<f(b)$ было значением этой функции
+        \end{theorem}
+
+        \begin{theorem}[монотонность и непрерывность обратной функции]
+            Если функция монотонна на отрезке $[a,b]$ и непрерывна на нем, то на этом отрезке определена обратная функция которая так же непрерывно возрастает/убывает на данном отрезке.
+        \end{theorem}
+        $\blacktriangleright$
+            Так как функция монотонна и непрерына на отрезке $\Rightarrow$ по теореме непрерывности монотонной функции множеством значений функции является отрезок $[f(a), f(b)] \Rightarrow $ существует обратная функция в силу биективности правила $f$. 
+        $\blacktriangleleft$
+
+        \begin{definition}[устранимый разрыв]
+                $\exists \lim_{x\rightarrow a}f(x)$, но $a \notin D(f)$ или $f(a) \ne \lim_{x\rightarrow a } f(x)$. В случае устранимого разрыва функцию можно доопределить не меняя значений функции в других точках
+        \end{definition}
+
+        \begin{definition}[разрыв первоо рода]
+            $$\lim_{x\rightarrow a-}f(x) \ne \lim_{x\rightarrow a+} f(x)$$
+        \end{definition}
+
+        \begin{definition}[разрыв второго рода]
+            Хотя бы один из односторонних пределов не существует или бесконечен.
+        \end{definition}
+
+        \begin{definition}[кусочно-непрерывная функция на отрезке]
+            Функция определена всюду на отрезке и непрерывна во всех внутренних точках, кроме ограниченного числа точек в которых имет разрывы первого рода.
+        \end{definition}
+
+        \begin{definition}[Ограниченность функции]
+            $\exists M, m \in \mathbb{R} : \forall x \in X \rightarrow m \leq f(x) \leq M$
+        \end{definition}
+
+    \chapter{Дифференциальное исчисление}
+    Пусть $y = f(x)$ задана на $(a,b)$, рассмотрим $x_0 \in (a,b)$ и приращение аргумента $\triangle x$ - произвольное число $x_0 + \triangle x \in (a,b)$
+    \begin{definition}[приращение функции]
+        $$\triangle y = \triangle f = f(x_0 + \triangle x) - f(x_0)$$
+    \end{definition}
+
+    \begin{definition}[производная]
+        Функция имеет производну в точке, если существует предел
+
+        $$ \lim_{\triangle x \rightarrow 0} \frac{\triangle y}{\triangle x} = \lim_{\triangle x \rightarrow 0} \frac{f(x_0 + \triangle x) - f(x_0)}{\triangle x} = f'(x_0)$$
+    \end{definition}
+
+    \begin{theorem}[о непрерывности функции имеющей производную]
+        Если функция имеет производную в некоторой точке, то функция непрерывна в этой точке.
+    \end{theorem}
+    $\blacktriangleright$По определению производной существует предел. Из его существования следует, что в достаточно малой окрестности справедливо равененство $\frac{\triangle y}{\triangle x} = f'(x_0) + a(\triangle x)$, где $a(\triangle x)$ - б.м.ф. при $\triangle x \rightarrow 0$. Получаем $\triangle y = f'(x_0)\triangle x + a(\triangle x ) \triangle x \Rightarrow \triangle y \xrightarrow{\triangle x \rightarrow 0} 0$, следовательно $y=f(x)$ непрерывна в точке. $\blacktriangleleft$
+
+    \begin{definition}[односторонние производные]
+        Если существует односторонний предел: $\lim_{\triangle x \rightarrow 0 +/-} \frac{\triangle y}{\triangle x}$, то этот предел называют односторонней производной и обозначают $f_{+/-}'(x)$ 
+    \end{definition}  
+
+    \begin{theorem}[Основные правила дифференцирования] 
+        $\\$
+        \begin{itemize}
+            \item $(u \pm v)' = u' \pm v' $
+            \item $(u \cdot v)' = u' \cdot v + u \cdot v'$
+            \item $(\frac{u}{v})' = \frac{u' \cdot v - u \cdot v}{v^2}$
+        \end{itemize}
+    \end{theorem}
+    $\blacktriangleright$ понять и написать док-во $\blacktriangleleft$
+
+
+    \begin{definition}
+        Если функция определена в окрестности точки $x$, то ее приращение можно представить в виде $\triangle y = \triangle f = f(x+ \triangle x) - f(x) = A\triangle x + o(\triangle x), \triangle x \rightarrow 0$
+    \end{definition}
+
+    \begin{theorem}
+        Функция дифференцируема в точке только тогда, когда функция имеет в этой точке производную. Если функция дифференцируема, то $\triangle y = f'(x_0) + o(\triangle x), \triangle x \rightarrow 0$
+    \end{theorem}
+
+    \begin{definition}[о непрерывном дифференцировании]
+        Функцию, производая которой непрерывна в точке или на промежутке, называют непрерывно дифференцируемой 
+    \end{definition}
+
+    \begin{definition}[Дифференциал]
+        Если функция дифференцируема в точке, то линейную часть ее приращения называют дифференциалом
+        $$df = f'(x)\triangle x, \triangle x = dx \Rightarrow dy=f'(x)dx \Rightarrow f'(x)=\frac{dy}{dx}$$
+    \end{definition}
+
+    \begin{definition}[Геометрический смысл производной]
+        Производная - тангенс касательной к графику функции в точке
+    \end{definition}
+
+    \begin{theorem}
+        Если функция в некоторой окрестности точки непрерывна и строго монотонна и имеет производную в точке отличную от нуля, то обратная функция имеет в этой точке производную и справедливо: $g'(x) = \frac{1}{f'(x)}$
+    \end{theorem}
+
+    $\blacktriangleright$
+        Если функция строко возрастает, то ее приращения $\triangle y, \triangle x$ имеют одинаковые знаки. Переходя к пределу, видим что: $\lim_{\triangle y \rightarrow 0} \frac{\triangle x}{\triangle y} = \lim_{\triangle x \rightarrow 0} \frac{1}{\frac{\triangle y}{\triangle x} } =+ \infty$. Для убывающей функции предел равен $-\infty$. 
+    $\blacktriangleleft$
+
+    \begin{theorem}
+        Пусть функция $y=f(x)$ имеет производную в точке $x_0, f(x_0) = y_0$ и функция $z=\phi(y)$ имеет проивзодную в точке $y_0$. Тогда сложная функция $z = \phi(f(x))$ имеет производную в точке $x_0$ и справедливо равенство: $z(x_0)' = \phi'(y_0)f'(x_0)$
+    \end{theorem}
+    $\blacktriangleright$понять и доказать $\blacktriangleleft$
+
+    \begin{theorem}[формула Лейбница]
+        Если у функций $u(x), v(x)$ существует в точке $x_0$ производные порядка $n = 1, 2...$, то в этой точке существует производная порядка $n$ произведения: $$(u(x_0) \cdot v(x_0))^{(n)} = \sum^n_{k=0} C^k_n u^{(k)}(x_0)\cdot v^{(n-k)}(x_0)$$
+    \end{theorem}
+    $\blacktriangleright$Док-во по ММИ. При $n=1 \rightarrow (u\cdot v)'=u' \cdot v u \cdot v'$ \\ Пусть формула справедлива для $n=m$, тогда для $n=m+1$ получаем $(uv)^{(m+1)}=\sum^m_{k=0}C^k_{k=0}(u^{(k)}v^{(m-k)})' = \sum^{m}_{k=0}C^{k}_{m}(u^{(k+1)} v^{(m-k)} + u^{(k)}v^{(m-k+1)}) = \sum^{m}_{i=1} (C^{i-1}_{m}+C^{i}_{m})u^{(i)} v^{(m-i+1)} + C^{m}_{m} u^{(m+1)}v^{(0)} + C^{0}_{m} u^{(0)} v^{(m+1)} = \sum^{m+1}_{i=0}C^{i}_{i=0} u^{(i)} \cdot v^{m+1-i}$ $\blacktriangleleft$
+
+    \begin{theorem}
+        Если $f'(x_0)>0$, то функция строго возрастает, а если $f'(x_0) < 0$, то функция убывает.
+    \end{theorem}
+    $\blacktriangleright$
+    Пусть $f'(x) > 0$. Так как $f'(x_0) = \lim_{\triangle x \rightarrow 0} \frac{\triangle y}{\triangle x}$, то при достаточно малых $x$ имеем $\frac{\triangle y}{\triangle x} > 0 \Rightarrow \triangle y, \triangle x $ одного знака. 
+    $\blacktriangleleft$
+
+    \begin{theorem}[теорема Ферма]
+        Если функция имеет производную в точке, то эта точка может быть точкой локального экстремума функции только если $f'(x_0) = 0$
+    \end{theorem}
+    $\blacktriangleright$Очевидно$\blacktriangleleft$
+
+    \begin{theorem}[теорема Дарбу о промежуточных значениях]
+        $f(x)$ дифференцируема на $[x_1; x_2] \Rightarrow \forall D \in [f'(x_1); f'(x_2)] \exists d \in [x_1; x_2] : D = f'(d)$
+    \end{theorem}
+
+    \begin{theorem}[теорема Ролля]
+        Если $f(a) = f(b),$ то существует точка $\xi \in (a,b) : f'(\xi) = 0$
+    \end{theorem}
+    $\blacktriangleright$Очевидно$\blacktriangleleft$
+
+    \begin{theorem}[теорема Лагранжа о среднем]
+        Для функции существует $\xi \in (a,b): f(b) - f(a) = f'(\xi)(b-a) $
+    \end{theorem}
+
+    $\blacktriangleright$
+        Подберем число $\lambda$, такое что бы $\phi(x) = f(x) - \lambda, \phi(a) = \phi(b) \Rightarrow f(a) - \lambda a = f(b) - \lambda b \Rightarrow \lambda = \frac{f(b) - f(a)}{b-a}$. По Т. Ролля существует точка $\xi, \phi'(\xi) = 0 $
+    $\blacktriangleleft$
+
+    \begin{theorem}[теорема Коши о среднем]
+        Пусть функции $g(a) \ne g(b)$, их производные не равны нулю одновременно, тогда $\exists \xi \in (a,b): \frac{f(b) - f(a)}{g(b) - g(x)} = \frac{f'(\xi)}{g'(\xi)}$
+    \end{theorem}
+
+    $\blacktriangleright$
+        $\phi(x) = f(x) - \lambda g(x) \Rightarrow f(a) - \lambda g(a) = f(b) - \lambda g(b) \Rightarrow \lambda = \frac{f(b) - f(a)}{g(b) - b(a)}, \phi(a) = \phi(b) \Rightarrow$ по Т. Ролля существует $\phi'(\xi) = 0 \Rightarrow f'(\xi) - \frac{f(b) - f(a)}{g(b) - g(a)}g'(\xi) = 0 \Rightarrow \phi'(\xi ) = f'(x) - \lambda g'(x) = 0 \Rightarrow f'(\xi) - \frac{f(b) - f(a)}{g(b) - g(a)} g'(\xi) = 0$ 
+    $\blacktriangleleft$
+
+    \begin{theorem}[следствие из теоремы лагранжа]
+        Если производная функции во всех точках интервала равна нулю, то она постоянна на отрезке
+    \end{theorem}
+
+    \begin{theorem}[правило Лопиталя]
+        $$\lim_{x\rightarrow a}\frac{f(x)}{g(x)} = \lim_{x\rightarrow a}\frac{f(x)'}{g(x)'} $$
+    \end{theorem}
+
+    \section{Формула Тейлора}
+
+    \begin{theorem}[формула Тейлора с остаточным членом в форме Пеано]
+        $$f(x) = \sum^n_{k=0}\frac{f^{(k)} (x_0)}{k!}(x-x_0)^{k} + o((x-x_0)^n)$$
+    \end{theorem}
+
+    \begin{theorem}[формула Тейлора с остаточным членом в форме Лагранжа]
+        $$f(x) = \sum^n_{k=0}\frac{f^{(k)} (x_0)}{k!}(x-x_0)^{k} + \frac{f^{(n+1)}(\xi)}{(n+1)!}(x - x_0)^{n+1}$$
+    \end{theorem}
+
+    \begin{definition}[формула Маклорена]
+        При $x_0 = 0$ формула Тейлора принимает следующую запись:
+        $$f(x) = \sum^n_{k=0}\frac{f^{(k)} (0)}{k!}(x)^{k} + o(x^n)$$
+    \end{definition}
 \end{document}
+
+
+
+
+% $\blacktriangleright$ $\blacktriangleleft$
