@@ -1,8 +1,8 @@
 import random 
 
 suits = ['♤', '♡', '♢', '♧']
-cards_type = ['6', '7']
-# cards_type = ['6', '7', '8', '9', '10', 'J', 'Q', 'K' , 'T']
+# cards_type = ['6', '7']
+cards_type = ['6', '7', '8', '9', '10', 'J', 'Q', 'K' , 'T']
 cards = []
 
 
