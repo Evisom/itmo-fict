@@ -12,18 +12,25 @@ symbols = ',.-=!:()—[];'
 for i in symbols:
     origin = origin.replace(i, '')
     essay = essay.replace(i, '')
-
 essay = essay.split()
 
-l = 0
-c = 0
-for i in range(0, len(essay)):
-    r = KnuthMorrisPrattSearch(origin, essay[i])
-    if len(r) > 0:
-        l+=1
-        if l >= 3:
-            c+=len(essay[i])
-    else:
-        l = 0
+i = 0
+s = 0
+while i < len(essay) - 2:
+    l = 0
+    fragment = essay[i]
+    for q in range(i+1, len(essay)):
+        fragment += ' ' + essay[q]
+        if fragment in origin:
+            l+=1
+        elif l >= 3:
+            s+=len(fragment)
+            i = q
+            break 
+        else:
+            i = q
+            break
 
-print(c/l_e)
+print(s/l_e)
+
+# print(c/l_e)
