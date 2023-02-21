@@ -21,7 +21,8 @@ while i < len(essay) - 2:
     fragment = essay[i]
     for q in range(i+1, len(essay)):
         fragment += ' ' + essay[q]
-        if fragment in origin:
+        if len(KnuthMorrisPrattSearch(origin, fragment)) > 0:
+        # if fragment in origin:
             l+=1
         elif l >= 3:
             s+=len(fragment)

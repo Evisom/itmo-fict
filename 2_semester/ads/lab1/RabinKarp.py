@@ -20,7 +20,8 @@ def RabinKarpSearch(string, substring):
         fragment = string[i:i+len(substring)]
         fragment_hash = hash(fragment, alp)
         if fragment_hash==substring_hash:
-            indexes.append(i)
+            if fragment == substring:
+                indexes.append(i)
 
     return indexes       
 
