@@ -1,0 +1,65 @@
+\chapter{Лекция 3}
+    \begin{definition}[Определенный интеграл]
+        Рассматриваем функцию $f(x)$, которая непрерывна на отрезке $[a,b]$. Пусть функция $f(x) > 0, a < b$. Разобъем отрезок $[a,b]$ точками $x_k, k = 0 .. n-1$
+        на $n-1$ частей. Рассмотрим $\Delta x = x_k - x_{k-1}$. Наибольшее значение $\Delta x $ обозначим за ранг дробления. $max \Delta x_i = \lambda (i = 0, ... n-1)$
+        На каждым частичном отрезке выберем произвольным образом точку $x_k$ и найдем значение функции $f(\xi_k)$. 
+        Рассмотрим $\lim_{\lambda \rightarrow 0, n \rightarrow \infty} \sum^{\infty}_{k=0} f(\xi_k)\cdot \Delta x_k  = \int^{a}_b f(x) dx$ \\ 
+        \textsc{Свойства: }
+        \begin{itemize}
+            \item $f(x) > 0, a<b \rightarrow \int^a_b f(x)dx$
+            \item $f(x) > 0, a >b \rightarrow -\int^a_b f(x) dx $ 
+            \item $f(x) >0, a=a \rightarrow \int^a_b f(x) dx = 0$
+        \end{itemize}
+    
+    \end{definition}
+
+    \begin{definition}[Интегральная сумма Римана]
+        $\sum^{n-1}_{k=0} f(\xi_k)\cdot \Delta x_k $ \\ 
+        Предел суммы Римана не зависит от выбора точек и разбиения отрезка $[a,b]$ на маленькие отрезки.
+    \end{definition}
+    
+    \begin{theorem}[Теорема существования определенного интеграла]
+        $f(x)$ называется кусочно-непрерывной на $[a,b]$, если она имеет конечное количество точек разрыва первого рода.
+    \end{theorem}
+
+    \begin{theorem}[Достаточное условие интегрируемости функции]
+        Если функция кусочно-непрерына на отрезке $[a,b]$, то на этом отрезке существует определенный интеграл 
+    \end{theorem}
+
+    \begin{definition}[Геометрический смысл определенного интеграла]
+        Рассмотрим функцию $f(x)$, непрерывную на отрезке $[a,b]$, то $\int^b_a f(x) dx $ - площадь криволинейной трапеции. (площадь под графиком функции) на отрезке $[a,b]$ ограниченной осью $O_x $ или $y=0$
+    \end{definition}
+
+    \begin{definition}[Свойства определенного интеграла]
+        $\\$
+        \begin{itemize}
+            \item $\int ^a_a f(x) dx = 0$ - по определению
+            \item $\int ^b_a f(x) dx = - \int ^a_b f(x) dx$ - по определению 
+            \item $\int^b_a (c_1 f_1 + c_2 f_2) dx = c_1\int ^b_a f_1(x) dx + c_2 \int^b_a f_2(x) dx$ - По определению, определенный интеграл - предел суммы Римана. Сумму можно разбить, а константу вынести.
+            \item Рассмотрим $c \in [a,b], f(x)$ - непрерывна, то $\int^b_a f(x)dx = \int^c_a f(x)dx + \int^b_c f(x) dx$
+            \item $a<b, x\in [a,b]: f(x) \geq  0 \Rightarrow \int^b_a f(x)dx \geq 0$ 
+            \item $a<b, x\in [a,b]: f(x) \leq  0 \Rightarrow \int^b_a f(x)dx \leq 0$ 
+            \item $a<b, x\in[a,b]: f(x) \leq \phi(x) \Rightarrow \int^b_a f(x)dx \leq \int^b_a \phi(x) dx$
+            \item $a<b, x\in[a,b]: |\int^b_a f(x) dx| \leq \int^b_a |f(x)| dx$
+        \end{itemize}
+    \end{definition}
+
+    \begin{theorem}[Оценка определенного интеграла]
+        Если функция $f(x)$ - непрерына на отрезке $[a,b]$, то справедливо утверждение: $$m(b-a) \leq \int^b_a f(x) dx \leq M(b-a)$$ где $m $ - наименьшее значение функции на $[a,b]$, а $M$ - наибольшее значение 
+        \\ \textsc{Доказательство:} \\
+        $f(x)$ - непрерывна $\Rightarrow \exists \sup, \inf$ по Т. Вейерштрасса. $$\sum^{n-1}_{k=0} m \Delta x_k \leq \sum^{n-1}_{k=0} f(\xi_k) \Delta x_k \leq \sum^{n-1}_{k=0} M \Delta x_k, \Delta x_k = b - a$$, если мы рассмотрим все значения. $$\Rightarrow \sum^{n-1}_{k=0} m(b-a) \leq \sum^{n-1}_{k=0} f(\xi_k) \Delta x_k \leq \sum^{n-1}_{k=0} M(b-a) \Rightarrow$$ $$   \lim_{x\rightarrow 0,  n \rightarrow\infty} \sum^{n-1}_{k=0} m(b-a) \leq \lim_{x\rightarrow 0,  n \rightarrow\infty} \sum^{n-1}_{k=0} f(\xi_k) \Delta x_k \leq\lim_{x\rightarrow 0,  n \rightarrow\infty}  \sum^{n-1}_{k=0} M(b-a)$$
+    \end{theorem}
+
+    \begin{theorem}[Теорема о среднем]
+        $\\$Если $f(x)$ непрервна на $[a,b]$, то $$\exists \xi \in [a,b]: \int^b_a f(x)dx = f(\xi)(b-a)$$ 
+        \textsc{Доказательство:}
+        $f(x)$ - непрерывна $\Rightarrow m(b-a) \leq \int^b_a f(x)dx \leq M(b-a) \Rightarrow  m \leq \int^b_a f(x)dx \cdot \frac{1}{b-a} \leq M \Rightarrow \int^b_a f(x)dx \cdot \frac{1}{b-a} = f(\xi), \xi \in [a,b] \Rightarrow \int^b_a f(x)dx = f(\xi)(b-a)$
+    \end{theorem}
+
+    \begin{theorem}[Об интеграле с переменным верхним пределом (Бароу)]
+        $\\f(x) $ - непрерывна на $[a,b] \Rightarrow \int^x_a f(t) dt$ имеет проивзодную которая равна подынтегральной функции $f(x)$
+        $$\Bigr(\int^x_a f(t)dt \Bigr) ' = f(x)$$
+        \textsc{Доказательство:}
+        $\\ \phi(x) = \int^x_a f(t)dt \Rightarrow \phi(x + \Delta x) = \int^{x+\Delta x}_a f(t)dt = \int^x_a f(t)dt + \int^{\Delta x}_x f(t)dt \Rightarrow \phi(x+\Delta x) = \phi(x) + \int^{\delta x + x}_x f(t)dt \Rightarrow
+         \Delta \phi(x) = \phi (x+\Delta x) - \phi(x) = \int^{\Delta x + x}_x f(t)dt \Rightarrow $ по теореме о среднем $\int^{\Delta x + x}_x f(t)dt = f(\xi)(\Delta x - x) \Rightarrow \frac{\Delta \phi (x)}{\Delta x} = f(\xi) \Rightarrow \lim_{\Delta x \rightarrow 0} \frac{\Delta \phi(x)}{x} = \lim_{\Delta x \rightarrow 0} f(\xi) = f(x) \Rightarrow \Bigr(\int^x_a f(t)dt \Bigr)' - \phi(x)' = f(x)$
+    \end{theorem}

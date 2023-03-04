@@ -1,0 +1,76 @@
+\chapter{Лекция 4. Дима - краш!}
+    \begin{theorem}[дополнительная к формуле Ньютона-Лейбница]
+        Если $f(x)$ - непрерывна на отрезке, то она на этом отрезке имеет первообразную и имеет неопределенный интеграл $$\int f(x) dx = F(x) + C$$
+
+        \textsc{Доказательство:} Пусть $F(x)$ - первообразная для $f(x)$ на отрезке $[a,b]. \int_a^x f(t) dt = F(x), F'(x) = (\int^a_a f(t) dt)' = f(x) $ по теореме Бароу. 
+        $ \\ \phi(x) $ - первообразная $f(x)$, то $F(x) - \phi(x) = C \Rightarrow \int f(x)dx = F(x) + C$
+
+    \end{theorem}
+
+    \begin{theorem}[Ньютона-Лейбница]
+        Если $f(x)$ непрерывна $[a,b]$, то $$\int^b_a f(x)dx = F(b) - F(a), a<b$$
+
+        \textsc{Доказательство:}
+            $\int^x_a f(t)dt = F(x), f(x) = F'(x)$ - первообразная. Рассмотрим $[a,b]$, пусть $x=a \Rightarrow \int^a_a f(t)dt = F(a) + C \Rightarrow F(a) = -C \\$
+            Пусть $x = b \Rightarrow \int^b_a f(t) dt = F(b) + C = F(b)-F(a) \Rightarrow \int^b_a f(t)dt = F(b) - F(a) \Rightarrow t = x \in [a,b] \Rightarrow \int^b_a f(x)dx = F(b) - F(a) \\ $
+        \textsc{Замечание:} $\int^b_a f(x)dx = F(b) - F(a) = F(x)|^b_a$ (краткая запись)
+
+    \end{theorem}
+
+    \textsc{Методы вычисления определенного интеграла}
+    \begin{itemize}
+        \item Формула замены
+        \item Интегрирование по частям
+    \end{itemize}
+
+    \begin{theorem}[Формула замены]
+        $\int^b_a f(x)dx , f(x)$ - непрерывна на $[a,b], $ положим $\phi(t)$ - непрерывна на $[\alpha, \beta]$и $\phi(\alpha) = a, \phi(\beta) = b, \exists \phi'(t)$, тогда справедлива формула:
+        $$
+            \int^b_a f(x)dx = \int^{\beta}_{\alpha} f(\phi(t)) d\phi(t) = \int^{\beta}_{\alpha} f(\phi(t))\cdot \phi'(t) dt = F(\beta) - F(\alpha)$$ где $F(x)$- первообразная для функции $(f(\phi(t))\cdot y'(t))$
+    \end{theorem}
+
+    \begin{theorem}[Формула для интегрирования по частям]
+        Расммотрим $u(x), v(x)$ - которые непрерывны и дифференцируемы на $[a,b] \Rightarrow $ $$\int^b_a u(x)dv(x) = (u(x) v(x))|^b_a - \int^b_a v(x)du(x)$$
+    \end{theorem}
+
+    \subsubsection{Применение определенного интеграла. Площадь плоских фигур в декартовой системе координат}
+
+
+    $f(x)$ - непрерывна на $[a,b], f(x) > 0, a<b \Rightarrow$
+    $$S_{aABb} = \int^b_a f(x) dx$$
+
+
+    $f(x)$ - непрерывна на $[a,b], f(x) < 0, a<b \Rightarrow$
+    $$S_{aABb} = \int^b_a -f(x) dx = \int^a_b f(x)dx$$ 
+
+    
+    $f(x)$ меняет знак при переходе через ось $O_x \Rightarrow$
+    $$S = S_1 + S_2 = \int_a^c - f(x)dx + \int^b_c f(x)dx$$
+
+
+    $f(x), g(x)$ - непрерывны на отрезке $[a,b], f(x) > g(x) \Rightarrow$
+    $$S = \int^b_a (f(x) - g(x))dx$$
+
+
+    $x = x(y), y\in[c,d] \Rightarrow$
+    $$S = \int_c^d f(y)dy$$
+
+
+    $x=x(t), y=y(t), t\in[\alpha, \beta] \Rightarrow$
+    $$S = \int^b_a y(x)dx = \int^{\beta}_{\alpha} y(t)dx(t) = \int^{\beta}_{\alpha} y(t)\cdot x'(t)dt$$
+
+
+    В полярной системе координат. $x^2 + y^2 = R^2 \Rightarrow y = \sqrt{R^2 - x^2}$ 
+    \begin{equation*}
+    \begin{cases}
+        x = R \cdot \cos t \\ 
+        y = R \cdot \sin t
+    \end{cases}, t \in [0, 2\pi]
+    \end{equation*}
+    $$\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$$
+    \begin{equation*}
+        \begin{cases}
+            x = a \cdot \cos t \\ 
+            y = b \cdot \sin t
+        \end{cases}, t \in [0, 2\pi]
+        \end{equation*}
