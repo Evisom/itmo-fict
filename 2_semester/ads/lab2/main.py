@@ -19,6 +19,26 @@ def multiplicative_hash(arr: list) -> list: # Функция для хэширо
     hash = "".join(hash) # Объединяем получившийся массив в одну строку
     return hash 
 
+
+
+def crc32(string: str) -> str:
+    message = ''
+    for i in string:
+        message+=bin(ord(i))[2:]
+    g = '100110000010001110110110111' # 0x04C11DB7 
+    message = message + '0'*(len(g)-1)
+
+    block = message[0:len(g)]
+    i = len(g) - 1
+    while i < len(message):
+        block = bin(int(block, 2) ^ int(g, 2))[2:]
+        while len(block) < len(g):
+            i+=1
+            if i < len(message):
+                block+=message[i]
+            else:
+                return hex(int(block,2))
+            
 def MD5_hash(string: str) -> str:
     # эх если бы мне читали лекции по алгоритмам
 
@@ -124,3 +144,4 @@ def MD5_hash(string: str) -> str:
 text = input()
 print('Multiplicative hash: ', multiplicative_hash(text))
 print('MD5 hash: ', MD5_hash(text))
+print('CRC32 hash: ', crc32(text))
