@@ -32,6 +32,6 @@ while i < len(essay) - 2:
             i = q
             break
 
-print(s/l_e)
+print(round(s/l_e*100, 2), "%")
 
 # print(c/l_e)

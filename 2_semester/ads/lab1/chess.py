@@ -99,8 +99,8 @@ def find(start, end, fig):
 
 
 
-route1 = (find([0,7], [5,4], 'king'))
-route2 = (find([0,7], [5,4], 'king'))
+route1 = (find([0,0], [0,6], 'king'))
+route2 = (find([0,0], [0,6], 'queen'))
 print(route1, route2)
 
 from BoyerMoore import BoyerMooreSearch
