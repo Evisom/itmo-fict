@@ -112,7 +112,7 @@ def MD5_hash(string: str) -> str:
 
 
     iteration = 0
-    for b in range(0, len(blocks)): # Перебираем каждый 512 битный блок 
+    for b in range(0, len(blocks), 128): # Перебираем каждый 512 битный блок 
         for r in range(0, 4): # 4 раунда
             for i in range(0, len(blocks[b])): # Перебираем каждый из 16ти 32х битных блоков
                 bufferCopy = copy.deepcopy(buffers) # Копируем начальные значения буфера
