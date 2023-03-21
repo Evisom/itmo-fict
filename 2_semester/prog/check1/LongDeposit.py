@@ -7,7 +7,8 @@ class LongDeposit(Deposit):
 
     # Withdraw are not availible for long deposit 
     def __sub__ (self, amount):
-        print('Not available for this deposit')      
+        print('Not available for this deposit')  
+        
 
     # Compound interest
     def period(self):
@@ -15,5 +16,5 @@ class LongDeposit(Deposit):
         self._Deposit__updateHistory(self._balance * self._roi)
         self._balance += self._balance * self._roi
     
-
+    
         

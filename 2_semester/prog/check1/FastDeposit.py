@@ -7,19 +7,23 @@ class FastDeposit(Deposit):
         self._profit = 0
 
     # Withdraw and top-up are not availible for fast deposit
-    def __add__ (self, amount):
-        print('Not available for this deposit')
 
-    def __sub__ (self, amount):
-        print('Not available for this deposit')  
+    def restrictedMethods(func):
+        print('Not available for this deposit')
+        func 
+
+    def __add__():
+        pass     
+    __add__ = restrictedMethods(__add__)
+        
+    def __sub__():
+        pass     
+    __sub__ = restrictedMethods(__sub__)
 
     def __str__ (self): # Overloading default str method
         info = ('Open: ' + str(self._isOpened) + '\nBalance: ' +  str(self._balance) + '\nPeriods:' + str(self._periods) + '\nProfit: ' + str(self._profit))
         return info       
-
-    def getBalance(self): # Method returns balance + profit for all time 
-        return round(self._balance + self._profit, 2)
-
+    
     def period(self): # add profit to a separate account
         self._periods +=1
         self._profit += self._balance * self._roi 

@@ -9,6 +9,9 @@ class Deposit(Account):
         self._isOpened = True
         self._transactions = []
         self._profit = 0
+        self._lastTransaction = 0
+
+
 
     def __str__ (self): # Overloading default str method
         info = ('Open: ' + str(self._isOpened) + '\nBalance: ' +  str(self._balance) + '\nPeriods:' + str(self._periods))
