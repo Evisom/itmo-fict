@@ -1,0 +1,46 @@
+\chapter{Лекция 5}
+
+    \begin{definition}[Длина дуги]
+        предел длины вписанной кривой при $n\rightarrow \infty$
+    \end{definition}
+
+    \subsubsection{Вычисление длины дуги }
+        Кривая $AB$ задана графиком функции $f(x), x \in [a,b], a < b, f(x)$ непрерывна на $[a,b]$.
+        Рассматривается $k$ кусочек ломанной. $l_k = \sqrt{\Delta x_k^2 + \Delta y_k^2} = \sqrt{\Delta x_k^2 + (f_k - f_{k-1}^2)}$ по теореме Лагранжа $f_k - f_{k-1} = f_k'(x)\Delta x_k \Rightarrow = \sqrt{\Delta x_k^2 + (f_k')^2 \Delta x_k^2} = \Delta x_k \sqrt{1 + (f_k')^2} = l_k \Rightarrow \sum_{k=1 }^{n01} l_k = \sum_{n-1}^{k=1} \sqrt{1+(f_k')^2} \Delta x_k \Rightarrow \lim_{n \rightarrow \infty} \sum_{n-1}^{k=1} \sqrt{1+(f_k')^2} \Delta x_k \Rightarrow$ $$\int_a^b \sqrt{1 + (f_k')^2} dx$$
+
+        Если кривая задана в параметрическом виде 
+     $ \\ 
+        \begin{cases}
+            x = \phi(t) \\ 
+            y =\xi (t)
+        \end{cases} \Rightarrow L = \int_{t_1}^{t_2} \sqrt{(x'(t))^2 + (y'(t))^2} dt = \int^{t_1}_{t_1} \sqrt{(\phi_t')^2 + (\xi_t')^2}$
+
+        Кривая задана в полярной системе координат 
+        $r = r(\phi)$
+        Рассмотрим $[\alpha, \beta]$
+        $\begin{cases}
+            x = r \cdot \cos \phi \\
+            y = r \cdot r \sin \phi 
+        \end{cases}  $
+        $L = \int_{t_1}^{t_2} \sqrt{(x_t')^2 + (y_t')^2} dt $
+
+        $x_\phi ' = r'(\phi) \cdot \cos \phi + r(\phi) \cdot (- \sin \phi)$
+        $y_\phi ' = r'(\phi) \cdot \sin \phi + r(\phi) \cdot \cos \phi$  
+        $(x_\phi ')^2 + (y_\phi)^2 = (r_\phi')^2 + r_\phi^2 \Rightarrow L \int^\beta_\alpha \sqrt{(r_\phi')^2 + r_\phi^2} d\phi $
+
+    \subsubsection{Несобственные интегралы}
+    Рассмотрим $y=f(x)$ определена в $x \in (a, +\infty)$ и интегрируема при $x\in (a,A) \subset (a, + \infty)$
+
+    \begin{definition}[Несобственный интеграл]
+        $\int_{a}^{+\infty} f(x) dx$ от функции $y=f(x)$ по бесконечному промежутку $[a, +\infty)$ называеют $\lim_{A\rightarrow\infty} \int^A_a f(x)dx$ и если предел существует и конечный, то несобственный интеграл называется сходящимся. В противном случая интеграл называется расходящимся. 
+
+        Геометрический смысл несобственного интеграла - площадь бесконечной криволинейной трапеции.
+
+        \textsc{Вычисление:} $\int^{+\infty}_a f(x)dx = \lim_{A\rightarrow \infty} \int^A_a f(x)dx = \lim_{A\rightarrow \infty} F(A)$
+    \end{definition}
+
+    \begin{definition}[Главное значение несобственного интеграла по бесконечному промежутку]
+        $$\int_{=\infty}^{+\infty} = \lim_{R\rightarrow \infty} \int_{_R}^{R} F'(R) - F(-R)$$
+        Обозначается как: $$v.p. \int_{-\infty}^{+\infty} f(x) dx = \lim_{R \rightarrow \infty} \int^R_{-R} f(x) dx$$
+        В определении главного значения несобственного интеграла имеется ввиду симметричное возрастание модуля переменной $x$ в положительном и отрицительном направлении. 
+    \end{definition}

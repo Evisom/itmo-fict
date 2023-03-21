@@ -1,4 +1,4 @@
-\chapter{Лекция 4. Дима - краш!}
+\chapter{Лекция 4.}
     \begin{theorem}[дополнительная к формуле Ньютона-Лейбница]
         Если $f(x)$ - непрерывна на отрезке, то она на этом отрезке имеет первообразную и имеет неопределенный интеграл $$\int f(x) dx = F(x) + C$$
 
@@ -74,3 +74,14 @@
             y = b \cdot \sin t
         \end{cases}, t \in [0, 2\pi]
         \end{equation*}
+
+    Рассматривается кривая $r (\phi)$ заданная в полярной системе координат и ограничена углом $\alpha, \beta$. 
+    \begin{itemize}
+        \item Разбиваем сектор на $n$ кусков. $\alpha = \phi_1, \phi_2, ... , \phi_n = \beta$
+        \item Вводим углы $\Delta \phi_n = \phi_n - \phi_{n-1}$
+        \item Рассмотрим произвольный $\Delta \phi_k$, ограничен кривой $r =f(\Delta \phi_k)$, $S = \frac{1}{2} r^2_k \Delta \phi_k$
+        \item Таким образом находим все площади $\Delta S_1; \Delta S_2, ... , \Delta S_n$
+        \item Составим сумму $S = \sum \Delta S_n = \sum_{k=1}^{n-1} \frac{1}{2} r^2_k \Delta \phi_k$ - интегральная сумма
+        \item Вводим ранг дробления - $\lambda = \max \Delta \phi_k$
+        \item $S = \lim \sum_{k=1}^{n-1} \frac{1}{2} r^2_k \Delta \phi_k$. Если предел существует и имеет конечное значение, то: $$S = \int_{\alpha}^{\beta} \frac{1}{2} r^2(\phi) d\phi = \int^{\beta}_{\alpha} \frac{1}{2} f^2(\phi) d\phi$$
+    \end{itemize}
