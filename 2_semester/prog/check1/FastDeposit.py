@@ -27,4 +27,4 @@ class FastDeposit(Deposit):
     def period(self): # add profit to a separate account
         self._periods +=1
         self._profit += self._balance * self._roi 
-        self._Deposit__updateHistory(self._balance * self._roi )
+        self._updateHistory(self._balance * self._roi )

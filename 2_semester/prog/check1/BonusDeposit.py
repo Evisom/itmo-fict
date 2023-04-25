@@ -1,5 +1,5 @@
 from Deposit import Deposit
-
+import Error
 class BonusDeposit(Deposit):
     def __init__(self, balance=0, bonusroi = 0.1, basicroi = 0.01, bonusmin = 100000) -> None:
         super().__init__(balance)
@@ -13,12 +13,13 @@ class BonusDeposit(Deposit):
         return info  
          
     def period(self):
-        self._periods +=1
-        if self._balance > self._bonusMin: # Check account balance
-            self._Deposit__updateHistory(self._balance * self._basicRoi )
-            self._profit += self._balance * self._bonusRoi 
-        else:
-            self._Deposit__updateHistory(self._balance * self._basicRoi )
-            self._profit += self._balance * self._basicRoi 
+        if self._isOpened:
+            self._periods +=1
+            if self._balance > self._bonusMin: # Check account balance
+                self._updateHistory(self._balance * self._basicRoi )
+                self._profit += self._balance * self._bonusRoi 
+            else:
+                self._updateHistory(self._balance * self._basicRoi )
+                self._profit += self._balance * self._basicRoi 
 
-    
+        else: raise Error.AccountClosed('Account must be open')

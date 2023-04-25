@@ -1,0 +1,2 @@
+class AccountClosed(Exception):
+    pass

@@ -1,0 +1,15 @@
+\chapter{Лекция 8}
+\subsubsection{Вычисление двойного интеграла}
+
+Рассмотрим $I = \iint_D f(x,y)dxdy $
+
+$D(x,y) = \{a \leq x \leq b; c \leq y \leq d \}$
+
+Проведем сечение $ABB_1A_1$, площадь сечения $S(y) = \int_a^b f(x,y)dx \Rightarrow V = \int_a^b S(x)dx$ - объем тела.
+
+$V = \iint_D f(x,y) dxdy = \int^d_c S(y)dy = \int^d_c dy ( \int^b_a f(x,y)dx ) = \iint_D f(x,y)dxdy \\$
+
+
+
+\textsc{Пример:} $$\iint_D (x^2 + y^2) dxdy = \int_0^1 dx \int_0^2 (x^2 + y^2) dy = \int^1_0 dx [x^2 \cdot y + \frac{y^3}{3} |^2_0]=$$
+$$=\int^1_0 dx [x^2 \cdot 2 + \frac{2^3}{3} - (x^2 \cdot 0 + \frac{0}{3})] = \int^1_0 dx (2x^2 + \frac{8}{3}) = \frac{2x^3}{3} + \frac{8}{3}x |^1_0 = \frac{2}{3} + \frac{8}{3} = \frac{10}{3}$$

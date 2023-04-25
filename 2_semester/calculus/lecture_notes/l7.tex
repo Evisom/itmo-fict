@@ -1,0 +1,35 @@
+\chapter{Лекция 7}
+
+\definition{Простая кривая} - кривая $K$, которая распадается на конечное число частей, каждая из которых имеет уравнение $y=f(x)$ или $x=\phi(y)$ причем $f(x), g(x)$ непрерывные функции на $[a,b], [p, q]$ то в этом случае $K $ - кривая простая, замкнутая самонепересекающаяся кривая лежащая на плоскости $Oxy$ разбивает множество точек на два множества, единственным образом
+
+\definition{Двойной интеграл} 
+\begin{itemize}
+    \item 1. Разобъем область $D$ сетью простых кривых произвольным образом на ячейки $D_1, D_2, D_3... D_n$, площадями $S_1, S_2, S_3 .. S_n$ с диаметрами $d_1, d_2, d_3, ... d_n$
+    \item 2. Наибольший из диаметров обозначаем через ранг дробления $\max(d_k) = \lambda$
+    \item 3. В каждой ячейке $D_k$ возьмем произвольную точку $M_k(x_k, y_k)$ и вычислим значения $f(M_k)$
+    \item 4. Умножим $f_k(M_k)$ на соответсвующую площадь $S_k$ ячейки и все это просуммируем $\sum_{k=1}^n = f(x_k, y_k) S_k$, то если рассмотрим $\lim_{n\rightarrow\infty} \sigma_k = \lim_{n\rightarrow\infty, \lambda \rightarrow 0} \sum_{k=1}^n f(x_k, y_k) \Rightarrow \iint_D f(x,y) dxdy$
+    \begin{theorem}[О существовании двойного интеграла]
+        Если подынтегральное функция $f(x,y)$ непрерывна в каждой точки области $D(x,y) \rightarrow \exists \iint_D f(x,y)dxdy$
+    \end{theorem}
+    \subsubsection{Геометрический смысл двойного интеграла}
+    Если $f(x,y) \ge 0$ в каждой точки области $D$, то 
+    $$\iint_D f(x,y) dxdy = V$$
+    Объем тела ограниченного снизу области $D(x,y)$ с боков цилиндрической поверхностью, образующие которой параллельны $Oz$
+
+    \subsubsection{Свойства двойного интеграла}
+    $C_1, C_2 = const \ne 0 \\ $
+    $f_1(x,y), f_2(x,y)$ - непрерывны в области $D$
+
+    \begin{itemize}
+        \item Аналогичные свойства, как у обычных интегралов
+        \item Если каждая точка в области больше нуля, то и интеграл будет больше нуля.
+        \item Если одна функция больше другой, то ее интеграл тоже будет больше 
+        \item Если в каждой точке $D$ справедливо $m \leq f(x,y) \leq M$, то $ m \cdot S_d \leq \iint f(x,y)dxdy \leq M \cdot S_D \\ $ \textsc{Доказательство:} так как $m \leq f(x,y) \leq M \Rightarrow \iint_D mdxdy \leq \iint_D f(x,y) dxdy \leq \iint_d Mdxdy \Rightarrow m \iint_D 1dxdy \leq \iint_D f(x,y)dxdy \leq M \iint_D 1dxdy \Rightarrow $ что и требовалось доказать.
+    \end{itemize}
+
+    \begin{theorem}[О среднем]
+            Если в каждой точке $D f(x,y)$ непрерывна, то в области $D$ найдется точка $P(\xi,\nu)$
+            $$\iint_D f(x,y)dxdy = f(\xi, \nu) \cdot S_D$$
+            \textsc{Доказательство:} так как функция непрерывна, то по свойству $m\cdot S_D \leq \iint_D f(x,y)dxdy \leq M\cdot S_D :| \frac{1}{S_D} \Rightarrow m \leq \frac{1}{S_D} \iint_D f(x,y)dxdy \leq M \Rightarrow \frac{1}{S_D} \iint_D f(x,y) dxdy f(\xi, \nu) \Rightarrow \iint_D f(x,y)dxdy = f(\xi,\nu) \cdot S_D$
+    \end{theorem}
+\end{itemize}

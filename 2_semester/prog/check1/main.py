@@ -4,6 +4,10 @@ from BonusDeposit import BonusDeposit
 from LongDeposit import LongDeposit
 
 
+# import _thread
+
+import threading
+
 amount = int(input('How much money do you want to invest?'))
 periods = int(input('For how long?'))
 
@@ -11,16 +15,25 @@ a1 = FastDeposit(amount)
 a2 = BonusDeposit(amount)
 a3 = LongDeposit(amount)
 
+a2._isOpened = False
 
-for i in range(periods):
-    a1.period()
-    a2.period()
-    a3.period()
+def calculateDeposit(deposit):
+    for i in range(periods):
+        deposit.period()
+    
+
+t1 = threading.Thread(target=calculateDeposit, args=(a1, ))
+t1.start()
+t2 = threading.Thread(target=calculateDeposit, args=(a2, ))
+t2.start()
+t3 = threading.Thread(target=calculateDeposit, args=(a3, ))
+t3.start()
+
+
 
 print('Fast deposit: ', a1.balance)
 print('Bonus deoisut: ', a2.balance)
 print('Long deposit: ', a3.balance)
-
 
 
 
