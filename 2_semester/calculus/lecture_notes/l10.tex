@@ -1,0 +1,68 @@
+\chapter{Лекция 10}
+\subsubsection{Вычисление тройного интеграла в декартовых координатах}
+Область $G$ ограничена $z = \phi(x,y)$  и $z = \phi(x,y)$ - поверхности, которые однозначно проектируются на одну и ту же область $D$
+
+$$\iiint_D f(x,y,z) dxdydz = \iint_D dxdy \int_{\phi_1(x,y)}^{\phi_2(x,y)} f dz$$
+
+Если область $D(x,y)$ представляет собой криволинейную трапецию, то $x \in [a,b]; y = \xi_1(x); y = \xi(x)$
+$$\int_a^bdx \iint_{\xi_1(x)}^{\xi_2(x)}dy\int_{\phi_1(x)}^{\phi_2(x)} f dz$$
+
+
+\subsubsection{Вычисление тройного интеграла в цилиндрических координатах}
+Вычисление тройного интеграла в цилиндрических координатах описывается тремя координатами. 
+$\rho, \phi, z \Rightarrow P(\rho, \phi, z) \rho $ - полярный радиус, $\phi$ - полярный угол, для точки $p'$ - которая является проекцией точки $p$ $z$ - аппликата точки $p$.
+
+Декартовы координаты связаны с цилиндрическими координатами: 
+$$
+x = \rho \cdot \cos \phi; \phi \in [0, +\infty]\\
+$$
+$$
+y = \rho \cdot \sin \phi; \phi \in [0, 2\pi]\\ 
+$$
+$$
+z = z; z \in [-\infty, +\infty]
+$$
+
+$$
+ \iiint_G f(x,y,z) dxdydz = \iint_{G^*} f(\rho \cos \phi, r\sin \phi, z) |J| dr d\phi dz 
+$$
+
+$$
+J =  \det \begin{bmatrix}
+    \frac{dx}{dr} & \frac{dx}{d\phi} & \frac{dx}{dz} \\
+    \frac{dy}{dr} & \frac{dy}{d\phi} & \frac{dx}{dz} \\
+    \frac{dz}{dr} & \frac{dz}{d\phi} & \frac{dz}{dz} \\
+\end{bmatrix} = r \cos^2 \phi + r \sin^2 \phi = r
+$$
+
+$
+drdydz = J \cdot dr d\phi dz = dv
+$ = элемент объема в цилиндрических координатах.
+
+\subsubsection{Сферические координаты в тройном интеграле}
+В сферических координатах положение точки $p$ описывается с помощью трех координат $\phi, r, \theta$ где $r $ - радиус вектор которые соединяет точку $p$ с началом координат. $\phi$ - полярный угол, угол между проекцией точки $p$ на плоскость $Oxy$ и осью $Ox. \theta $ - угол между радиус вектором и положительным направлением $Oz$.
+$
+\\
+\phi \in [0, 2\phi] \\ 
+r \in [0, +\infty] \\ 
+\theta \in [-\frac{\pi}{2}; \frac{\pi}{2}] \\ 
+$
+Декартовы координаты через сферические:
+$
+\\
+x = r \cos \phi \sin \theta \\ 
+y = r \sin \phi \sin \theta  \\ 
+z = r \cos \theta  
+$
+
+$$
+\iiint_D f(x,y,z)dxdydz = \iiint_{D^*} f( r\cos\phi \sin \theta, r \sin \phi \sin \theta, r \cos \theta) \cdot |J| dtd\phi d\theta 
+$$
+
+$$
+J =  \det \begin{bmatrix}
+    \frac{dx}{dr} & \frac{dx}{d\phi} & \frac{dx}{d\theta} \\
+    \frac{dy}{dr} & \frac{dy}{d\phi} & \frac{dx}{d\theta} \\
+    \frac{dz}{dr} & \frac{dz}{d\phi} & \frac{dz}{d\theta} \\
+\end{bmatrix} = r^2 \sin \theta \Rightarrow r^2 \sin \theta dr d\phi d\theta
+$$ - элемент объема в сферических координатах.

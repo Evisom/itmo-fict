@@ -34,7 +34,7 @@ $$
 
 \subsubsection{Тройной интеграл}
 \begin{definition}[Тройной интеграл]
-    Дано материальное тело, представляющее собой пространственную область $\Omega$ заполненную массов. Требуется найти массу этой области, при условии что в каждой точке этой области известна плотность. $\phi(P) = \phi(x,y,z)$
+    Дано материальное тело, представляющее собой пространственную область $\Omega$ заполненную массой. Требуется найти массу этой области, при условии что в каждой точке этой области известна плотность. $\phi(P) = \phi(x,y,z)$
     Разобъем $\Omega$ на неперекрывающиеся кубируемые части: $\Omega_1, \Omega_2, \Omega_3, ... , \Omega_n$ в соотсветствии с объемами $\Delta v_1, \Delta v_2, ... , \Delta v_n$. В каждой области выбираем $\forall (\cdot) P_k $ с плотностью $\phi(p_k)$, тогда масса этой области $\Delta m_k \approx \phi(P_k) \cdot \Delta v_k$, мааса всей области $\Omega m \approx \sum_{k=1}^{n} \phi(P_k) \cdot v_k$. Пусть $d$ наименьший из диаметров частичных областей: $\lim_{d\rightarrow 0} \sum_{k=1}^{n} \phi(P_k) \cdot \Delta v_k$, где сумма не зависит от выбора точки $P_k$, не зависит от разбиения и если предел конечен, то:
     $$
         \iiint_{\Omega} \phi(x,y,z) dxdydz = \lim_{d \rightarrow 0} \sum_{k=1}^n \phi(P_k) \cdot \Delta v_k
@@ -45,61 +45,3 @@ $$
 \end{definition}
 
 
-
-\subsubsection{тест}
-
-$$
-a = \frac{\sum_{i=1}^N Z_iY_i}{\sum_{i=1}^N Z_i^2}
-$$
-
-$$
-\sigma_a = \sqrt{\frac{\sum_{i=1}^N (Y_i - aZ_i)^2}{(N-1)\sum_{i=1}^N Z^2_i}}
-$$
-
-$$
-\sin a = \frac{(h_0 - h) - (h_0' - h')}{x'-x}
-$$
-
-$$
-\epsilon_a = \frac{\Delta a}{a} \cdot 100\%
-$$
-
-$$
-\epsilon = \frac{\Delta g}{g} \cdot 100\%
-$$
-
-$$
-\Delta_a = 2\sigma, \Delta g = 2\sigma_g
-$$
-
-$$
-\langle a \rangle = \frac{2(x_2 - x_1)}{\langle t_2 \rangle^2 - \langle t_1 \rangle^2}
-$$
-
-$$
-\Delta a = \langle a \rangle \sqrt{\frac{(\Delta x_{m2})^2 + (\Delta x_{m1})^2}{(x_2 - x_1)^2} + \frac{(\langle t_1\rangle \Delta t_1)^2 + (\langle t_2\rangle \Delta t_2)^2}{(\langle t_2\rangle ^2 - \langle t_1\rangle ^2)^2}}
-$$
-
-$$
-B \equiv g = \frac{
-    \sum_{i=1}^N a_i \sin \alpha_i - \frac{1}{N} \sum_{i=1}^N a_i \sum_{i=1}^N \sin \alpha_i
-}{
-    \sum_{i=1}^N \sin \alpha_i^2 - \frac{1}{N}(\sum_{i=1}^N \sin \alpha_i)^2
-}
-$$
-
-$$
-d_i = a_i - (A+B \sin \alpha_i)
-$$
-
-$$
-\sigma_g = \sqrt{\frac{
-    \sum_{i=1}^N d^2_i
-}{
-    D(N-2)
-}}
-$$
-
-$$
-    D = \sum_{i=1}^N \sin \alpha_i^2 - \frac{1}{N}(\sum_{i=1}^N \sin \alpha_i)^2
-$$

@@ -1,0 +1,155 @@
+\chapter{Лекция 12}
+\subsubsection{Свойства криволинейного интеграла II рода}
+\begin{itemize}
+    \item Криволинейный интеграл второго рода зависит от пути обхода $\int_{AB} P dx + Qdy = - \int_{BA} Pdx + Qdy$
+    \item Если кривая - контур замкнутый $ABCDA \Rightarrow \oint_{+ABCDA} P(x,y) dx + Q(x,y)dy = - \oint_{-ABCDA} P(x,y)dx + Q(x,y) dy$ 
+    \item Если кривая описывается $AB=AC+CB, \Rightarrow \int_{AB} P(x,y) Q(x,y) dy = \int_{AC} P(x,y)dx + Q(x,y)dy + \int_{CB} P(x,y)dx + Q(x,y) dy$
+    \item Если кривая $AB$ - прямолинейный отрезок который перпендикулярен $Ox \Rightarrow \int_{AB} P(x,y)dx = 0$ так как $x=const, d(const) = 0$
+    \item Если кривая $AB$ - прямолинейный отрезок который перпендикулярен $Oy \Rightarrow \int_{AB} Q(x,y) dy = 0$ так как $y=const, dy = 0$
+\end{itemize}
+
+\subsubsection{Связь криволинейного интеграла I рода с криволинейным интегралом II рода}
+Рассмотрим $\int_{AB} P(x,y)dx $, где $P(x,y) $ - непрерывная функция вместе со своими частными производными на рассматриваемой кривой. Кривая $AB$ будет задаваться в явном виде, то есть $y = \xi(x), x\in[a,b]$ так как кривая непрерывна и функция $P(x,y)$ со своими производными непрерывна, следовательно в каждой точке кривой можно построить касательную к кривой. $\xi'_x = \tg \alpha \Rightarrow \int_{AB} P(x,y) dx = \int_{} P(x, \xi(x)) dx = \int P(x, \xi(x)) \cdot 1 dx = [\tg^2 \alpha + 1 = \frac{1}{\cos^2 \alpha }\Rightarrow \cos^2 \alpha \cdot (\tg^2 \alpha + 1) = 1 \Rightarrow \sqrt{\cos^2 \alpha \cdot (\tg^2 + 1) }\Rightarrow \cos  \alpha \sqrt{\tg^2 \alpha + 1}] = \int_a^b P(x,\xi(x)) \cos \alpha  \sqrt{\tg^2 \alpha + 1} dx = [\sqrt{y'_x + 1} dx = dl] = \int_L P(x,\xi(x)) \cdot \cos \alpha dl$ - криволинейный интеграл I рода.
+
+
+Аналогично $\int_{AB} Q(x,y) dy = [x=\phi(y), y\in[c,d]] = \int Q(\phi(y), y) \cdot \cos \beta \sqrt{1 + (\phi_y')^2  } dy = \int_L Q(x,y) \cdot \cos \beta \cdot dl$
+
+$$
+\int_{AB} P(x,y) dx + Q(x,y) dy = \int P(x, \xi(x)) \cdot \cos \alpha + Q(\phi(y), y) \cdot \cos \beta dl = 
+$$
+
+$$
+= \int_L [P(x,y) \cdot \cos \alpha + Q(x,y) \cdot \cos \beta] dl
+$$
+
+\begin{definition}[Формула Остроградского-Грина]
+    Если функции $P(x,y); Q(x,y)$ непрерывны вместе со своими частными производными $\frac{dp}{dy}; \frac{dq}{dx}$ на рассматриваемой кривой которая полностью лежит в области $D(x,y)$ то имеет место формула: 
+    $$
+    \oint_{+ABCDA} P(x,y)dx + Q(x,y) dy = \iint_D (\frac{dQ}{dx} - \frac{dP}{dy})dxdy
+    $$
+
+    \textsc{Доказательство:}
+    Пусть заданная область $D(x,y)$ ограничена таким образом: 
+    \begin{itemize}
+        \item Кривыми $y=\phi(x); y=\xi(x)$
+        \item С боков $BC || Oy; AD || Oy$
+    \end{itemize}
+    Рассмотрим $\oint_{+ABCDA} P(x,y) dx + Q(x,y)dy$ по кускам $\Rightarrow $
+
+    $$
+    \oint_{+ABCDA} P(x,y) dx + Q(x,y)dy = \int_{AB} P(x,y)dx + $$ $$ +  \int_{BC} P(x,y)dx + \int_{CD} P(x,y)dx + \int_{DA} P(x,y)dx 
+    $$
+
+    По свойствам криволинейного интеграла $\int_{DA} P(x,y) dx = \int_{BC} P(x,y) dx = 0$ так как $x = const \Rightarrow dx = 0$
+
+    Подставим наши кривые:
+    $$
+    \int_{AB} P(x, \phi(x)) dx + \int_{CD} P(x, \xi(x)) dx 
+    $$
+
+    Так как $\frac{dP}{dy} $ - непрерывна на $L$ и в области $D \Rightarrow P(x, y_2(x)) - P(x,y_1(x) ) = \int_{y_1}^{y_2} \frac{dP}{dy} dy$ 
+
+    К нашей формуле мы получим такое выражение:
+
+    $$
+        P(x,\xi(x)) - P(x,\phi(x)) = \int_{\phi(x)}^{\xi(x)} \frac{dP}{dy} dy 
+    $$
+
+    $$
+        \int_a^b P(x,\phi(x)) dx + \int^a_b P(x,\xi(x)) dx  = \int^b_a P(x,\phi(x)) dx - \int_a^b P(x,\xi(x)) dx = 
+    $$
+
+    $$
+     = \int_a^b [P(x,\phi(x)) - P(x, \xi (x))] dx = - \int_a^b [P(x,\xi(x) ) - P(x, \phi(x))] dx 
+    $$
+    Вспомним, что $P(x, \xi(x)) - P(x, \phi(x)) = \int_{\phi(x)}^{\xi(x)} \frac{dP}{dy} dy \Rightarrow$
+
+    $$
+        -\int_a^b 1dx \int_{\phi(x)}^{\xi(x)} \frac{dP}{dy} dy = - \iint_D \frac{dP}{dy} dydx = \oint_{+ABCDA} P(x,y) dx
+    $$ - малая формула Грина 
+
+    Аналогичным образом можно доказать (сами!!!) 
+
+    $$
+        \oint_{+ABCDA} Q(x,y) dy = \iint_D \frac{dQ}{dy}
+    $$
+    Следовательно: 
+    $$
+    \oint_{+ABCDA} P(x,y)dx + Q(x,y) dy = \iint_D (\frac{dQ}{dx} - \frac{dP}{dy})dxdy
+    $$
+    Что и требовалось доказать. 
+
+    \textsc{Следствие из формулы Остраградского-Грина:} Если $P(x,y) = - y; Q(x,y) = x$
+    $$
+        \oint_{L} P(x,y) dx + Q(x,y) dy = \oint_L - ydx + xdy = 2S_D
+    $$ Следовательно, через криволинейные интегралы II рода можно считать площади плоских фигур.
+\end{definition}
+
+\subsubsection{Криволинейные интегралы II рода независящие от пути интегрирования}
+
+Рассмотрим функции $P(x,y); Q(x,y)$ - непрерывны вместе со своими частными производными на рассматриваемой кривой и в области $D(x,y)$, кривая целиком лежим в области $D(x,y)$
+
+Криволинейный интеграл II рода не зависит от пути интегрирования, если результат вычисления криволинейного интеграла по любым кривым соединяющих точки $A$ и $B$ один и тот же. 
+
+
+\begin{theorem}
+    Если в каждой точке области $D(x,y) P(x,y) $ и $Q(x,y)$ непрерывны вместе со своими частными производными и выполняется условия Грина($\frac{dQ}{dx} = \frac{dP}{dy}$), то выражение $P(x,y) dx + Q(x,y) dy \Rightarrow$ $$ du(x,y) = P(x,y) dx + Q(x,y) dy \Rightarrow $$ 
+
+    $$
+        \int_{AB} P(x,y) dx + Q(x,y) dy= \int_{AB} du(x,y) = u(x,y)
+    $$ Тогда криволинейный интеграл не зависит от контура. 
+\end{theorem}
+
+\subsubsection{Приложение криволинейного интеграла II рода}
+\begin{itemize}
+    \item Если $f(x,y)$ - линейная плотность, то $\int_{AB} f(x,y) dl = m$ - масса дуги. 
+    \item $\oint_L x dy - y dx = 2S_D$ - площадь плоской фигуры. 
+    \item $\int P(x,y) dx + Q(x,y)$ , где $(P, Q) = F$ - силы перемещения точки, $(dx, dy) = S$ - перемещение кривой $\Rightarrow \int F dS = W$ - работа по перемещению точки вдоль контура $AB$ 
+    \item $f(x,y) = 1 \Rightarrow \int_{AB} 1 dl = L $ - длинна дуги
+\end{itemize}
+
+
+\begin{equation}
+    W_V + W_{\omega} + \Delta U = 0
+\end{equation}
+
+\begin{equation}
+    mgh = \frac{mv^2}{2} + \frac{I\omega^2}{2}
+\end{equation}
+
+\begin{equation}
+  v = \omega r 
+\end{equation}
+
+\begin{equation}
+ v = at; h = \frac{at^2}{2}
+\end{equation}
+
+\begin{equation}
+ v = \frac{2h}{t}
+\end{equation}
+
+\begin{equation}
+  I = mr^2(\frac{gt^2}{2h} - 1)
+\end{equation}
+
+\begin{equation}
+    mgh - mgh_1 = M(\varphi  + \varphi_1)
+\end{equation}
+
+\begin{equation}
+ mgh = M\varphi + \frac{mv^2}{2} + \frac{l\omega^2}{2}
+\end{equation}
+
+\begin{equation}
+ \frac{\varphi}{\varphi + \varphi_1} = \frac{h}{h+h_1}
+\end{equation}
+
+\begin{equation}
+ M \varphi = mgh \frac{h-h_1}{h+h_1}
+\end{equation}
+
+\begin{equation}
+ I = mr^2 (\frac{gt^2}{h} \cdot \frac{h_1}{h+h_1} - 1)
+\end{equation}
+
