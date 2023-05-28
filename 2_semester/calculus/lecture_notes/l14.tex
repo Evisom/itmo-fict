@@ -1,0 +1,53 @@
+\chapter {Лекция 14}
+\subsubsection{Поверхностный интеграл второго рода}
+\begin{definition}[]
+    Потоком жидкости через поверхность $\Sigma$ называется количество жидкости протекаюзее на единицу измерения 
+
+    $$
+    \Pi = \sum_{k=1}^n (v_k \cdot n_k) |_{P_k} \cdot S_k
+    $$
+
+    $$
+        \lim_{\lambda \rightarrow 0, n \rightarrow \infty} \sum_{k=1}^n (v \cdot n) |_{P_k} = \exists = \iint_\Sigma (v \cdot n ) d\delta 
+    $$
+\end{definition}
+
+\begin{definition}
+    Потоком вектора (векторного поля) через поверхность $\Sigma$ называется поверхностным интегралов второго рода:
+    $$
+        \Pi = \iint_\Sigma (\vec{a}\cdot \vec{n}) d\delta 
+    $$
+    Аналогичная запись:
+    $$
+    \Pi = \iint_\Sigma \vec{a}_{\vec{n}} d\delta
+    $$
+    $
+        \vec{a} = (P(x,y,z), Q(x,y,z), R(x,y,zs)) \\ 
+        P, Q, R 
+    $ - непрерывны на рассматриваемой поверхности 
+    $ \\ \vec{n} = (\cos \alpha, \cos \beta \cos \gamma)$
+    $\vec{a} \cdot \vec{n} = P \cdot \cos \alpha + Q\cdot\cos \beta + R\cdot\cos\gamma$
+
+    $$
+        \iint_\Sigma \vec{a}\cdot \vec{n} d\delta \iint_\Sigma (P\cos\alpha + Q\cos\beta + R\cos\gamma)d\delta = \iint_\Sigma P\cos\alpha d\delta + Q\cos\beta d\delta R\cos\gamma d\delta
+    $$
+    $$
+        = \iint_\Sigma  \pm P \cdot dydz \pm Q \cdot dxdz \pm R \cdot dxdy = \iint_\Sigma ( P\cos \alpha + Q\cos\beta R\cos\gamma ) d\delta =
+    $$
+    $$
+    \iint_\Sigma \pm P \cdot dydz + Q \cdot dxdz + R \cdot dydx
+    $$
+\end{definition}
+
+\subsubsection{Свойства:}
+\begin{itemize}
+    \item Линейность $\iint_\Sigma (\lambda\vec{a} + \mu \vec{b}) \cdot \vec{n} d\delta = \lambda \iint_\Sigma \vec{a} \cdot \vec{n} d\delta + \mu \iint_\Sigma \vec{b}\cdot \vec{n} d\delta$
+    \item Адиктивность $\Sigma = \Sigma_1 + \Sigma_2; \iint_\Sigma \vec{a}\vec{n}d\delta = \iint_{\Sigma_1}\vec{a}\vec{n}d\delta + \iint_{\Sigma_2}\vec{a}\vec{n} d\delta$
+    \item Гладкие поверхности и двухсторонние поверхности имеют 2 нормали 
+    \item $\iint_\Sigma f(x,y,z) dydz = \iint_{D_{Oyz}} f(g(g,z), y, z) dydz$
+\end{itemize}
+
+
+\begin{theorem}[Гаусса-Остроградского]
+    Если в некоторой области $G$ в пространстве $R^3$ координаты $\vec{a} (P, Q, R)$ непрерывные функии и имеют непрерывные частные производные $\frac{dO}{dX}, \frac{dQ}{dY}, \frac{dR}{dZ}$, то $\oint \oint \vec{a}\cdot\vec{n} d\delta = \iiint_T (\frac{dO}{dX}, \frac{dQ}{dY}, \frac{dR}{dZ})dxdydz $
+\end{theorem}
