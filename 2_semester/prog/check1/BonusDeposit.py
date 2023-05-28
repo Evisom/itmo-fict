@@ -16,10 +16,10 @@ class BonusDeposit(Deposit):
         if self._isOpened:
             self._periods +=1
             if self._balance > self._bonusMin: # Check account balance
-                self._updateHistory(self._balance * self._basicRoi )
+                # self._updateHistory(self._balance * self._basicRoi )
                 self._profit += self._balance * self._bonusRoi 
             else:
-                self._updateHistory(self._balance * self._basicRoi )
+                # self._updateHistory(self._balance * self._basicRoi )
                 self._profit += self._balance * self._basicRoi 
 
         else: raise Error.AccountClosed('Account must be open')

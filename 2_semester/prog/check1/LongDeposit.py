@@ -13,7 +13,7 @@ class LongDeposit(Deposit):
     # Compound interest
     def period(self):
         self._periods +=1
-        self._updateHistory(self._balance * self._roi)
+        # self._updateHistory(self._balance * self._roi)
         self._balance += self._balance * self._roi
     
     
