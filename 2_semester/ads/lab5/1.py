@@ -76,6 +76,6 @@ while not (game.winner) and i < 9:
 
 game.printMap(fig)
 if game.winner:
-    print('Game winnder - ', game.symbols[game.winner])
+    print('Game winner - ', game.symbols[game.winner])
 else:
     print('Draw')
