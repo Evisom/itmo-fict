@@ -32,11 +32,18 @@ class Truck():
         d.close()
 
     def bookTruck(self):
-        pass 
+        self.deleteTruck()
+        self.isBooked = True 
+        self.addTruck()
 
     def unbookTruck(self):
-        pass 
+        self.deleteTruck()
+        self.isBooked = False 
+        self.addTruck()
 
-    def isFit(self):
-        pass 
+    def isFit(self, c, w, h, l):
+        if c <= self.cap and w <= self.w and h <= self.h and l <= self.l:
+            return True 
+        else:
+            return False 
     
